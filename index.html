@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Gusta La Ciencia</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/hero-abs-1.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./assets/images/hero-abs-2.png" media="min-width(768px)">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1>
+        <a href="#" class="logo">Nos Gusta La Ciencia</a>
+      </h1>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">Nos Gusta La Ciencia</a>
+
+          <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-toggler>Inicio</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link" data-nav-toggler>Acerca de</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#courses" class="navbar-link" data-nav-toggler>Cursos</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#event" class="navbar-link" data-nav-toggler>Evento</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-toggler>Blog</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-toggler>Contacto</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <button class="header-action-btn" aria-label="Open search" data-search-toggler>
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+
+        <a href="#" class="header-action-btn login-btn">
+          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+          <span class="span">login / register</span>
+        </a>
+
+        <button class="header-action-btn nav-open-btn" aria-label="Open menu" data-nav-toggler>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <!-- 
+    - #SEARCH BOX
+  -->
+
+  <div class="search-container" data-search-box>
+    <div class="container">
+
+      <button class="search-close-btn" aria-label="Close search" data-search-toggler>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="search-wrapper">
+        <input type="search" name="search" placeholder="Search Here..." aria-label="Search" class="search-field">
+
+        <button class="search-submit" aria-label="Submit" data-search-toggler>
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home" aria-label="hero" style="background-image: url('./assets/images/hero-bg.jpg')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="section-subtitle">MEJOR FUTURO DE APRENDIZAJE CON NOSOTROS</p>
+
+            <h2 class="h1 hero-title">Somos un grupo de jóvenes que busca llevar divulgación científica a las ciudadelas de Santa Cruz</h2>
+
+            <p class="hero-text">
+              Información del proceso enseñanza-aprendizaje a nuestra unidad educativa.
+            </p>
+
+            <a href="#" class="btn btn-primary">
+              <span class="span">Empiece hoy</span>
+
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+          <figure class="hero-banner">
+
+            <img src="./assets/images/logo/1.png" width="500" height="500" loading="lazy" alt="hero image"
+              class="w-100">
+
+            <!-- <img src="./assets/images/logo/2.jpg" width="318" height="352" loading="lazy" aria-hidden="true"
+              class="abs-img abs-img-1"> -->
+
+            <img src="./assets/images/logo/2.png" width="200" height="280" loading="lazy" aria-hidden="true"
+              class="abs-img abs-img-2">
+
+          </figure>
+
+        </div>
+      </section>
+
+
+      <!---historia-->
+
+      <!-- <section class="hero" id="home" aria-label="hero">
+        <div class="container">
+        <figure class="hero-banner">
+            <img src="./assets/images/logo/1.png" width="500" height="500" loading="lazy" alt="hero image"
+              class="w-100">
+          </figure> 
+
+          <div class="hero-content">
+
+            <p class="section-subtitle">Historia de la unidad educativa </p>
+
+            <p class="hero-text">
+              Historia
+              completa
+            </p>
+
+            <a href="#" class="btn btn-primary">
+              <span class="span">Ver Mas</span>
+
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+        </div>
+      </section> -->
+
+
+
+      <!-- 
+        - #CATEGORY
+      
+
+      <section class="section category" aria-label="category">
+        <div class="container">
+
+          <p class="section-subtitle">Course Categories</p>
+
+          <h2 class="h2 section-title">Popular Topics To Learn</h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="briefcase-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Personal Development</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="file-tray-full-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Human Research</a>
+                  </h3>
+
+                  <span class="card-meta">24 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="color-palette-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Art & Design</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="layers-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Business Management</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="laptop-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Web Development</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="thumbs-up-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Lifestyle</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="headset-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Digital Marketing</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="server-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Data Sciences</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card">
+
+                <div class="card-icon">
+                  <ion-icon name="medkit-outline"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">
+                    <a href="#">Health & Fitness</a>
+                  </h3>
+
+                  <span class="card-meta">39 Course</span>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>  
+      
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <figure class="about-banner">
+
+            <img src="./assets/images/banner/2.png" width="450" height="590" loading="lazy" alt="about banner"
+              class="w-100 about-img">
+
+            <img src="./assets/images/banner/1.png" width="188" height="242" loading="lazy" aria-hidden="true"
+              class="abs-img abs-img-1">
+
+            <img src="./assets/images/banner/3.png" width="150" height="200" loading="lazy" aria-hidden="true"
+              class="abs-img abs-img-2">
+
+          </figure>
+
+
+       
+          <div class="about-content">
+
+            <p class="section-subtitle">¿Quienes Somos?</p>
+
+            <h2 class="h2 section-title">¿Quienes Somos?</h2>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+
+                <div class="item-icon item-icon-1">
+                  <img src="./assets/images/about-icon-1.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                </div>
+
+                <div>
+                  <h3 class="h3 item-title">MISIÓN</h3>
+
+                  <p class="item-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmoded tempor incididunt dolore magna
+                    aliqua.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="item-icon item-icon-2">
+                  <img src="./assets/images/about-icon-2.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                </div>
+
+                <div>
+                  <h3 class="h3 item-title">VISIÓN</h3>
+
+                  <p class="item-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmoded tempor incididunt dolore magna
+                    aliqua.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="item-icon item-icon-3">
+                  <img src="./assets/images/about-icon-3.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                </div>
+
+                <div>
+                  <h3 class="h3 item-title">OTROS</h3>
+
+                  <p class="item-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmoded tempor incididunt dolore magna
+                    aliqua.
+                  </p>
+                </div>
+
+              </li>
+
+            </ul>
+
+            <a href="#" class="btn btn-primary">
+              <span class="span">Sobre nosotros</span>
+
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+        
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #COURSE
+      -->
+
+      <section class="section course" id="courses" aria-label="course"
+        style="background-image: url('./assets/images/course-bg.jpg')">
+        <div class="container">
+
+          <p class="section-subtitle">Cursos Populares</p>
+
+          <h2 class="h2 section-title">Nuestros cursos populares</h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="course-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/Popular/1.jpg" width="370" height="270" loading="lazy"
+                    alt="Competitive Strategy law for all Estudiantes" class="img-cover">
+                </figure>
+
+                <div class="card-actions">
+
+                  <span class="badge">Intermediate</span>
+
+                  <button class="whishlist-btn" aria-label="Add to whishlist" data-whish-btn>
+                    <ion-icon name="heart"></ion-icon>
+                  </button>
+
+                </div>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="reader-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">35 Lecciones</span>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <time datetime="PT18H15M44S" class="card-meta-text">18h 15m 44s</time>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Trabajos en el huerto escolar medicinal del 6to B de Primaria</a>
+                  </h3>
+
+                  <div class="rating-wrapper">
+
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <span class="rating-text">(18 Visto)</span>
+
+                  </div>
+
+                  <div class="card-footer">
+                  <!--  
+                    <div class="card-price">
+                      <span class="span">$29.00</span>
+
+                      <del class="del">$39.00</del>
+                    </div>
+                  -->
+
+                    <div class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">47 Estudiantes</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="course-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/Popular/2.jpg" width="370" height="270" loading="lazy"
+                    alt="Machine Learning A-Z: Hands-On Python and java" class="img-cover">
+                </figure>
+
+                <div class="card-actions">
+
+                  <span class="badge">Advanced</span>
+
+                  <button class="whishlist-btn" aria-label="Add to whishlist" data-whish-btn>
+                    <ion-icon name="heart"></ion-icon>
+                  </button>
+
+                </div>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="reader-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">48 Lecciones</span>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <time datetime="PT18H15M44S" class="card-meta-text">18h 15m 44s</time>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Trabajo del PSP con estudiantes del 4to A de Primaria</a>
+                  </h3>
+
+                  <div class="rating-wrapper">
+
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <span class="rating-text">(18 Visto)</span>
+
+                  </div>
+                
+                  <div class="card-footer">
+                  
+                    <!--
+                    <div class="card-price">
+                      <span class="span">Free</span>
+                    </div>
+
+                  -->
+
+                    <div class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">65 Estudiantes</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="course-card">
+
+                <figure class="card-banner">
+                  <!-- <img src="./assets/images/Popular/3.jpg" width="370" height="270" loading="lazy"
+                    alt="Achieving Advanced in Insights with Big" class="img-cover"> -->
+
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0Atdqsy3r716ezEN96gE2pJngvnG75PeaiQ6Qne6gkqAD1sHx2f5iz4sh98Au1h3Tl&width=450&show_text=true&appId=167466933725219&height=450" width="450" height="450" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        
+                </figure>
+
+                
+
+                <!-- <div class="card-actions">
+
+                  <span class="badge">Basic</span>
+
+                  <button class="whishlist-btn" aria-label="Add to whishlist" data-whish-btn>
+                    <ion-icon name="heart"></ion-icon>
+                  </button>
+
+                </div> -->
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="reader-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">80 Lecciones</span>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <time datetime="PT18H15M44S" class="card-meta-text">18h 15m 44s</time>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">1 de febrero “Día internacional de la mujer y la niña en la ciencia”</a>
+                  </h3>
+
+                  <div class="rating-wrapper">
+
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <span class="rating-text">(18 Visto)</span>
+
+                  </div>
+
+                  <div class="card-footer">
+                    <!--  
+                    <div class="card-price">
+                      <span class="span">$59.00</span>
+
+                      <del class="del">$69.00</del>
+                    </div>
+                  -->
+                    <div class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">42 Estudiantes</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <!--
+              <div class="course-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/course-4.jpg" width="370" height="270" loading="lazy"
+                    alt="Education Makes A Person A Responsible Citizen" class="img-cover">
+                </figure>
+
+                <div class="card-actions">
+
+                  <span class="badge">Intermediate</span>
+
+                  <button class="whishlist-btn" aria-label="Add to whishlist" data-whish-btn>
+                    <ion-icon name="heart"></ion-icon>
+                  </button>
+
+                </div>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="reader-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">31 Lecciones</span>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <time datetime="PT18H15M44S" class="card-meta-text">18h 15m 44s</time>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Education Makes A Person A Responsible Citizen</a>
+                  </h3>
+
+                  <div class="rating-wrapper">
+
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <span class="rating-text">(18 Visto)</span>
+
+                  </div>
+
+                  <div class="card-footer">
+
+                    <div class="card-price">
+                      <span class="span">$49.00</span>
+
+                      <del class="del">$59.00</del>
+                    </div>
+
+                    <div class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">46 Estudiantes</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+              -->
+            </li>
+
+            <li>
+              <!--
+              <div class="course-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/course-5.jpg" width="370" height="270" loading="lazy"
+                    alt="Building A Better World One Student At A Time" class="img-cover">
+                </figure>
+
+                <div class="card-actions">
+
+                  <span class="badge">Advanced</span>
+
+                  <button class="whishlist-btn" aria-label="Add to whishlist" data-whish-btn>
+                    <ion-icon name="heart"></ion-icon>
+                  </button>
+
+                </div>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="reader-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">36 Lecciones</span>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <time datetime="PT18H15M44S" class="card-meta-text">18h 15m 44s</time>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Building A Better World One Student At A Time</a>
+                  </h3>
+
+                  <div class="rating-wrapper">
+
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <span class="rating-text">(18 Visto)</span>
+
+                  </div>
+
+                  <div class="card-footer">
+
+                    <div class="card-price">
+                      <span class="span">$29.00</span>
+
+                      <del class="del">$39.00</del>
+                    </div>
+
+                    <div class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">91 Estudiantes</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            -->
+            </li>
+
+            <li>
+              <!--
+              <div class="course-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/course-6.jpg" width="370" height="270" loading="lazy"
+                    alt="Education is About Forming Faithful Disciples" class="img-cover">
+                </figure>
+
+                <div class="card-actions">
+
+                  <span class="badge">Basic</span>
+
+                  <button class="whishlist-btn" aria-label="Add to whishlist" data-whish-btn>
+                    <ion-icon name="heart"></ion-icon>
+                  </button>
+
+                </div>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="reader-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">21 Lecciones</span>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <time datetime="PT18H15M44S" class="card-meta-text">18h 15m 44s</time>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Education is About Forming Faithful Disciples</a>
+                  </h3>
+
+                  <div class="rating-wrapper">
+
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <span class="rating-text">(18 Visto)</span>
+
+                  </div>
+
+                  <div class="card-footer">
+
+                    <div class="card-price">
+                      <span class="span">$79.00</span>
+
+                      <del class="del">$89.00</del>
+                    </div>
+
+                    <div class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="card-meta-text">22 Estudiantes</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+              -->
+            </li>
+
+          </ul>
+
+          <a href="#" class="btn btn-primary">
+            <span class="span">Ver detalle</span>
+
+            <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          </a>
+
+          <br>
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0Atdqsy3r716ezEN96gE2pJngvnG75PeaiQ6Qne6gkqAD1sHx2f5iz4sh98Au1h3Tl&width=300&show_text=true&appId=167466933725219&height=534" width="450" height="534" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0vLSVttQiXxmLdxfyoanxNtxkvika5GC3VEhapwruKZd1xGwwTCU8dQQmhQ2zg3GKl&width=300&show_text=true&appId=167466933725219&height=534" width="450" height="534" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0c65va4uuYeGpEeXVNgVkiL6UUx6zd23uxW8xyZJEy5tQHekj7z98t44vokMCQYtFl&width=300&show_text=true&appId=167466933725219&height=534" width="450" height="534" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+
+
+      
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="section cta" aria-label="workshop" style="background-image: url('./assets/images/cta-bg.png')">
+        <div class="container">
+
+          <figure class="cta-banner">
+            <img src="./assets/images/Portadas/1.jpg" width="580" height="380" loading="lazy" alt="cta banner"
+              class="img-cover">
+          </figure>
+
+          <div class="cta-content">
+
+            <p class="section-subtitle">Talleres</p>
+
+            <h2 class="h2 section-title">Actividades con los alumnos</h2>
+
+            <p class="section-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit amet, consect adipi scing elit, sed do
+              eiusmod tempor
+              incididunt ut sed do eiusmod tempor incididunt ut labore et dolore aliqua.
+            </p>
+
+            <a href="#" class="btn btn-secondary">
+              <span class="span">Ver detalle</span>
+
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #EVENT
+      -->
+
+      <section class="section event" id="event" aria-label="event">
+        <div class="container">
+
+          <p class="section-subtitle">Actividades Realiadas</p>
+
+          <h2 class="h2 section-title">Nos Gusta La Ciencia</h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="event-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/actividades/1.jpg" width="370" height="250" loading="lazy"
+                    alt="Equipo de Innovación y Emprendimiento Tecnológico" class="img-cover">
+                </figure>
+
+                <time class="badge" datetime="2023-12-04">04 Mar 2023</time>
+
+                <div class="card-content">
+
+                  <address class="card-address">
+                    <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                    <span class="span">Santa Cruz de la Sierra, Bolivia</span>
+                  </address>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">1ero B de Primaria, trabajando en el huerto escolar medicinal</a>
+                  </h3>
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Ver detalle</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="event-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/actividades/2.jpg" width="370" height="250" loading="lazy"
+                    alt="Feria virtual de empleos a tiempo parcial de primavera para estudiantes" class="img-cover">
+                </figure>
+
+                <time class="badge" datetime="2023-10-30">02 Feb 2023</time>
+
+                <div class="card-content">
+
+                  <address class="card-address">
+                    <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                    <span class="span">Santa Cruz de la Sierra, Bolivia</span>
+                  </address>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Nos Gusta La Ciencia,INICIAL Y PRIMARIA, TURNO MAÑANA en la Inauguración del Año Escolar 2023.</a>
+                  </h3>
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Ver detalle</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="event-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/actividades/3.jpg" width="370" height="250" loading="lazy"
+                    alt="Explorations of Regional Chief Executive Network" class="img-cover">
+                </figure>
+
+                <time class="badge" datetime="2023-09-18">18 Nov 2022</time>
+
+                <div class="card-content">
+
+                  <address class="card-address">
+                    <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                    <span class="span">Santa Cruz de la Sierra, Bolivia</span>
+                  </address>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Promoción 2022 del NIVEL INICIAL</a>
+                  </h3>
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Ver detalle</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #NEWSLETTER
+     
+
+      <section class="section newsletter" aria-label="newsletter"
+        style="background-image: url('./assets/images/newsletter-bg.jpg')">
+      -->
+        <!--
+          <p class="section-subtitle">SUSCRIBIRSE AL BOLETÍN INFORMATIVO</p>
+
+          <h2 class="h2 section-title">Obtenga todas las últimas noticias</h2>
+
+          <form action="" class="newsletter-form">
+
+            <div class="input-wrapper">
+              <input type="email" name="email_address" aria-label="email" placeholder="Enter your mail address" required
+                class="email-field">
+
+              <ion-icon name="mail-open-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              <span class="span">Subscribe</span>
+
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </button>
+
+          </form>
+        -->
+      
+
+  
+        
+              <section class="hero" id="home" aria-label="hero" class="section newsletter" aria-label="newsletter">
+        
+              <p class="section-subtitle">Como llegar a la unidad educativa</p>
+
+              <h2 class="h2 section-title">CONTACTO</h2>
+  
+              <div class="container">
+             
+
+                    <div id="map">
+                    </div>
+         
+                <div class="hero-content">
+  
+                  <p class="hero-text">           
+                      <address class="card-address">
+                        <span class="span">Santa Cruz de la Sierra, Bolivia
+                          <br>
+                          Dirección:
+                          Av 4to anillo
+                          <br>
+                          Teléfono:
+                          (591)
+                          <br>
+                          Correo:
+                          correo@gmail.com
+                          <br>
+                          Licencias:
+                          correo@gmail.com
+                          <br>
+                          Sugerencias:
+                          correo@gmail.com
+            
+                        </span>
+                      </address>
+                   
+                  </p>
+      
+                  <a href="#" class="btn btn-primary">
+                    <span class="span">Ver Mas</span>
+      
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+      
+                </div>
+              </div>
+            </section>
+
+        
+    
+
+
+
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">Nos Gusta La Ciencia-Turno Mañana-Nivel Inicial y Primaria</a>
+
+          <p class="section-text">
+            It is a long established fact that a reader will be distracted by the readable content of a page when
+            looking at its
+            layout. The point of using Lorem Ipsum.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Explorar</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Sobre nosotros</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Próximos Eventos</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Blog y noticias</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Preguntas frecuentes Pregunta</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Testimonio</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">política de privacidad</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Enlaces</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Contácto</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Plan de precios</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Perfil del instructor</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Preguntas más frecuentes</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Cursos Populares</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+              <span class="span">Términos y condiciones</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contacto</p>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+            <address class="footer-link">
+              24to anillo santa cruz
+            </address>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="call" aria-hidden="true"></ion-icon>
+
+            <a href="tel:+15917657839" class="footer-link">+ 1 (591) 000000</a>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="call" aria-hidden="true"></ion-icon>
+
+            <a href="tel:+15917657840" class="footer-link">+ 1 (591) 00000</a>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+
+            <a href="mailto:contact@neptaly.com" class="footer-link">contact@neptaly.com</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          Copyright 2023 Nos Gusta La Ciencia-Turno Mañana-Nivel Inicial y Primaria. All Rights Reserved by <a href="#" class="copyright-link">Luishiño</a>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="arrow-up"></ion-icon>
+  </a>
+
+  <script
+  src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyDoXPpQqlLk-R1-HEi-PpFLkSUoEhzGDY4&libraries=drawing&v=weekly&region=GB&callback=initMap&v=weekly&channel=2"
+  async></script>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        width: auto;
+        height: 400px;
+        border: solid #ffffff;
+        border-top-width: 1px;
+        border-left-width: 2px;
+    }
+
+</style>
+
+<script defer>
+
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: { 
+          lat:-17.7849881 ,
+          lng: -63.154124,
+       },
+       zoom: 14,
+  
+       mapTypeControl: false,
+      zoomControl: false,
+      streetViewControl: false
+    });
+  
+  
+  
+    const drawingManager = new google.maps.drawing.DrawingManager({
+      drawingMode: google.maps.drawing.OverlayType.MARKER,
+      drawingControl: true,
+      drawingControlOptions: {
+        position: google.maps.ControlPosition.TOP_CENTER,
+        drawingModes: [
+          google.maps.drawing.OverlayType.MARKER,
+          google.maps.drawing.OverlayType.CIRCLE,
+          google.maps.drawing.OverlayType.POLYGON,
+          google.maps.drawing.OverlayType.POLYLINE,
+          google.maps.drawing.OverlayType.RECTANGLE,
+        ],
+      },
+      markerOptions: {
+        icon: "{{ asset('img/icon30x45.png') }}",
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      },
+      circleOptions: {
+        fillColor: "#ffff00",
+        fillOpacity: 1,
+        strokeWeight: 5,
+        clickable: false,
+        editable: true,
+        zIndex: 1,
+      },
+    });
+  
+    drawingManager.setMap(map);
+  
+  }
+  
+  window.initMap = initMap;
+    /*  
+      function initMap() {
+          const marcador = {
+              lat:-17.78629 ,
+              lng: -63.18117,
+  
+          };
+  
+      
+  
+          const image = {
+              url: "{{ asset('img/micro.png') }}",
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+              
+          };
+  
+       
+  
+          const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 14,
+              center: marcador,
+  
+              minZoom: 8,
+              maxZoom: 20,
+              zoomControl: true,
+              zoomControlOptions: {
+              style: google.maps.ZoomControlStyle.DEFAULT
+  
+          }
+  
+          
+  
+          });
+          const marker = new google.maps.Marker({
+              position: marcador,
+              //position: locations[location],
+              map: map,
+              icon: image,
+              title: 'micro',
+              
+          });
+          
+      }
+   */
+  </script>
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
