@@ -25,6 +25,26 @@ for (let i = 0; i < navTogglers.length; i++) {
   });
 }
 
+/**
+ * carrusel automático
+ */
+
+window.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.carousel');
+  let position = 0;
+  const interval = 3000; // Cambia la velocidad del carrusel aquí (en milisegundos)
+  
+  function slide() {
+    position -= 25; // Ajusta el valor del desplazamiento según el tamaño de las cartillas de presentación
+    carousel.style.transform = `translateX(${position}%)`;
+    if (position <= -75) {
+      position = 0;
+      carousel.style.transform = `translateX(${position}%)`;
+    }
+  }
+  
+  setInterval(slide, interval);
+});
 
 
 /**
