@@ -2,11 +2,6 @@
   #style.css
 \*-----------------------------------*/
 
-/**
- * copyright 2022 codewithsadee
- */
-
-
 
 
 
@@ -47,7 +42,7 @@
 
   --ff-urbanist: 'Urbanist', sans-serif;
 
-  --fs-1: 4rem;
+  --fs-1: 3rem;
   --fs-2: 3.2rem;
   --fs-3: 2.4rem;
   --fs-4: 2rem;
@@ -244,6 +239,36 @@ body {
 }
 
 
+
+
+/*-----------------------------------*\
+  #MENTOR
+\*-----------------------------------*/
+.carousel {
+  display: flex;
+  overflow: hidden;
+}
+
+.about-mentor {
+  flex: 0 0 25%; /* Ajusta el tamaño de las cartillas de presentación */
+  text-align: center;
+  margin: 20px;
+}
+
+.about-mentor img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.item-title {
+  margin-top: 10px;
+}
+
+.item-mentor {
+  margin-top: 5px;
+  font-size: 14px;
+}
 
 
 
@@ -1074,6 +1099,29 @@ body {
   /**
    * ABOUT
    */
+
+
+   .abs-img,
+.abs-img-1,
+.abs-img-2 {
+  display: inline-block;
+  border-radius: 50%;
+  margin: 10px;
+  border: 2px solid #fff;
+  overflow: hidden;
+}
+
+.abs-img-1,
+.abs-img-2 {
+  width: 150px;
+  height: 150px;
+}
+
+.abs-img-1 {
+  width: 188px;
+  height: 242px;
+}
+
 
   .about-banner { margin-inline: 120px 130px; }
 
