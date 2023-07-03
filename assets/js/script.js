@@ -30,7 +30,7 @@ for (let i = 0; i < navTogglers.length; i++) {
  */
 
 window.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.querySelector('.carousel');
+  const carousel = document.querySelector('.carousel2');
   let position = 0;
   const interval = 3000; // Cambia la velocidad del carrusel aquí (en milisegundos)
   
