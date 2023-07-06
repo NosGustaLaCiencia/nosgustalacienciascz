@@ -32,7 +32,7 @@
   --black_80: hsla(0, 0%, 0%, 0.8);
   /* --pumpkin: hsl(26, 98%, 49%); */
   --pumpkin: #99ca61;
-  
+
   --white: hsl(0, 0%, 100%);
 
   /**
@@ -224,16 +224,32 @@ body {
 }
 
 .w-100 {
-   width: 100%; 
+   width: 100%;
   }
+
+
 
   .w-100-hero {
     width: 100%;
-    
-  }
-  
 
-.section { padding-block: var(--section-padding); }
+  }
+
+
+.section {
+  padding-block: var(--section-padding);
+
+}
+
+.section-Organizers {
+  margin: 1px;
+  text-align: center;
+
+}
+
+.section-mentores{
+  margin:0px;
+  text-align: center;
+}
 
 .grid-list {
   display: grid;
@@ -254,33 +270,39 @@ body {
 \*-----------------------------------*/
 /* .carousel {
   display: flex;
-  justify-content: center; 
-  gap: 20px; 
+  justify-content: center;
+  gap: 20px;
 
 } */
 
-.mentores{
-  background: #e4f0d7;
- 
 
-}
-.carousel {
-  margin: 20px;
+
+.carousel-mentores {
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas adicionales si no caben en una sola línea */
-  justify-content: center; /* Centra los elementos horizontalmente */
-  gap: 20px; /* Agrega un espacio de 20px entre los elementos */
+  margin: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1px;
+} 
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 480px) {
+  .carousel-mentores {
+    /* Estilos para dispositivos móviles */
+    flex-direction: column; /* Cambia la dirección del flex a columnas */
+    align-items: center; /* Centra los elementos verticalmente */
+  }
 }
 
 
 .content-mentor {
-  border: 50px solid #ffffff; 
   border-radius: 5%;
   background: #ffffff;
   height: auto;
-  flex: 0 0 25%;  /*Ajusta el tamaño de las cartillas de presentación */
+  flex: 0 0 20%;  /*Ajusta el tamaño de las cartillas de presentación */
   text-align: center;
-  margin: 10px;
+  margin: 5px;
   padding: 0px; /* Agrega un espacio interno de 10px para separar el contenido del borde */
   box-sizing: border-box; /* Incluye el borde en el cálculo del tamaño total del elemento */
 }
@@ -289,30 +311,34 @@ body {
 
 
 .about-mentor {
-
   text-align: center;
- 
-
-} 
+}
 
 .img-mentor{
-  width: 200px;
-  height: 200px;
-  border-radius: 1%; /*ver si quitar o no */
-  box-sizing: border-box;
-} 
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ffffff;
+  border-radius:50%;
+}
 
+/* Estilos para dispositivos móviles */
+@media (max-width: 480px) {
+  .img-mentor {
+    width: 180px; /* Reducir el ancho de las imágenes para dispositivos móviles */
+    height: 180px; /* Reducir la altura de las imágenes para dispositivos móviles */
+  }
+}
 
 .item-title {
-  margin-top: 8px;
+  margin-top: 1px;
   font-size: 20px;
 }
 
 .item-mentor {
-  margin-top: 5px;
+  margin-top: 1px;
   font-size: 14px;
   color: #363636;
-  margin: 20px;
+
 }
 
 /*-----------------------------------*\
@@ -351,31 +377,68 @@ body {
   #Organizers
 \*-----------------------------------*/
 
-.carousel {
-  margin: 20px;
+.carousel-Organizers {
+  margin: 5px;
   display: flex;
   flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas adicionales si no caben en una sola línea */
   justify-content: center; /* Centra los elementos horizontalmente */
-  gap: 20px; /* Agrega un espacio de 20px entre los elementos */
+  gap: 1px; /* Agrega un espacio de 20px entre los elementos */
 }
 .content-Organizers {
-  border: 30px solid #ffffff; 
+  border: 3px solid #ffffff;
   border-radius: 5%;
-  background: #ffffff;
-  height: auto;
-  flex: 0 0 25%;  /*Ajusta el tamaño de las cartillas de presentación */
+  background: #fdffdb;
+  flex: 0 0 20%;
   text-align: center;
-  margin: 20px;
-  padding: 0px; /* Agrega un espacio interno de 10px para separar el contenido del borde */
-  box-sizing: border-box; /* Incluye el borde en el cálculo del tamaño total del elemento */
+  margin: 5px;
+  padding: 0px;
+  box-sizing: border-box; 
 }
+
+
+
+@media (max-width: 360px) {
+  .content-Organizers {
+    flex-basis: 100%; /* Ajusta el ancho del contenedor para ocupar el 100% del espacio disponible */
+  }
+}
+@media (max-width: 440px) {
+  .content-Organizers {
+    flex-basis: 100%;
+     /* Ajusta el ancho del contenedor para ocupar el 100% del espacio disponible */
+  }
+}
+
+@media (max-width: 640px) {
+  .content-Organizers {
+
+    flex-basis: 10%;
+    /* Ajusta el ancho del contenedor para ocupar el 100% del espacio disponible */
+  }
+}
+@media (max-width: 746px) {
+  .content-Organizers {
+    flex-basis: 80%; /* Ajusta el ancho del contenedor para ocupar el 100% del espacio disponible */
+  }
+}
+
+@media (max-width: 998px) {
+  .content-Organizers {
+    flex-basis: 80%; /* Ajusta el ancho del contenedor para ocupar el 100% del espacio disponible */
+  }
+}
+
+
+
 .img-Organizers{
-  border: 30px solid #ffffff; 
-  width: 200px;
-  height: 200px;
+  border: 5px solid #ffffff;
+  width: 150px;
+  height: 150px;
   border-radius: 50%; /*ver si quitar o no */
-  box-sizing: border-box;
-} 
+
+}
+
+/* Estilos para dispositivos móviles */
 
 /*-----------------------------------*\
   #HEADER
@@ -414,11 +477,11 @@ body {
     text-decoration: none;
     transition: opacity 0.3s ease;
   }
-  
+
   .logo:hover {
     opacity: 1;
   }
-  
+
   .logo::after {
     content: '';
     position: absolute;
@@ -430,18 +493,18 @@ body {
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
-  
+
   .logo:hover::after {
     transform: scaleX(1);
   }
-  
+
   @media (max-width: 600px) {
     .logo {
       font-size: 1.8rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
       margin-left: 0; /* Sin margen izquierdo en dispositivos móviles */
     }
   }
-  
+
   @media (max-width: 400px) {
     .logo {
       font-size: 1.8rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
@@ -633,7 +696,7 @@ body {
   width:auto;
   margin: 2px;
   margin-block-end: 10px; /* Margen inferior móvil */
-  
+
 }
 
 /* Estilos para dispositivos móviles */
@@ -783,40 +846,51 @@ body {
   #ABOUT
 \*-----------------------------------*/
 
-.about { 
+.about {
 
-  padding-block-start: 0; 
+  padding-block-start: 0;
 }
 
+
+
+
 .about-banner {
+
   background-color: var(--light-gray);
   max-width: max-content;
   aspect-ratio: 450 / 300;
   margin-block-end: 40px;
 
+
 }
 
-.about-img { 
+.about-img {
   border-radius: var(--radius-6);
 
 
 }
 
 .about-list {
-   margin-block: 10px 20px; 
+   margin-block: 1px 2px;
+
   }
 
 .about-item {
   display: flex;
   align-items: flex-start;
-  gap: 25px;
+  gap: 15px;
+
 }
 
-.about-item:not(:last-child) { margin-block-end: 30px; }
+.about-item:not(:last-child) {
+   margin-block-end: 20px;
+
+  }
 
 .about-item .item-icon {
-  padding: 15px;
+  padding: 10px;
   border-radius: 50%;
+
 }
 
 .about-item .item-icon-1 { background-color: var(--orange-peel_10); }
@@ -830,7 +904,9 @@ body {
   margin-block-end: 5px;
 }
 
-.about-item .item-text { font-weight: var(--fw-500); }
+.about-item .item-text {
+
+  font-weight: var(--fw-500); }
 
 
 
@@ -841,6 +917,7 @@ body {
 \*-----------------------------------*/
 
 .course {
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1010,9 +1087,13 @@ body {
   #EVENT
 \*-----------------------------------*/
 
-.event :is(.section-subtitle, .section-title) { text-align: center; }
+.event :is(.section-subtitle, .section-title) {
+   text-align: center;
+  }
 
-.event .section-title { margin-block-end: 60px; }
+.event .section-title {
+  margin-block-end: 60px;
+}
 
 .event-card {
   position: relative;
@@ -1271,9 +1352,9 @@ body {
    * ABOUT
    */
 
-  .about-banner { 
-    position: relative; 
-    
+  .about-banner {
+    position: relative;
+
   }
 
   .about .abs-img-1 {
@@ -1362,7 +1443,7 @@ body {
 
 
 
-   
+
    .abs-img,
 .abs-img-3,
 .abs-img-4,
@@ -1380,17 +1461,25 @@ body {
   height: 250px;
   border: 5px solid #ffffff;
   left: 350px;
-  
+
 }
 
 .abs-img-2 {
-  width: 188px;
-  height: 242px;
+  width: 1088px;
+  height: 2042px;
   border: 5px solid #ffffff;
   position: absolute;
-  left: 30px;
-  top: 0;
-  z-index: 2;
+  left: 50px;
+
+}
+.abs-img-0 {
+  position: absolute;
+  border: 5px solid #ffffff;
+  width: 150px;
+  height: 250px;
+  margin: -300px;
+  left: 270px;
+  border-radius: 2%;
 }
 
 
@@ -1455,7 +1544,7 @@ body {
   }
 }
 
-  .about-banner { 
+  .about-banner {
     margin-inline: 120px 130px; }
 
   .about .abs-img-2 {
@@ -1589,7 +1678,7 @@ body {
     max-height: 80%;
     animation: rotate 2s linear infinite;
   }
-  
+
 
 
   .hero .abs-img-1 {
