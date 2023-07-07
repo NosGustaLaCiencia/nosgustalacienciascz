@@ -1,9 +1,9 @@
 {
     "name": "Nos Gusta La Ciencia",
     "short_name": "Nos Gusta La Ciencia",
-    "description": "Nos Gusta La Ciencia",
-    "background_color": "#2B2B2B",
-    "theme_color": "#2196F3",
+    "description": "Programa de divulgación científica para estudiantes apasionados por STEM...",
+    "background_color": "#99ca61",
+    "theme_color": "#99ca61",
     "orientation": "portrait",
     "display": "standalone",
     "start_url": "index.html",

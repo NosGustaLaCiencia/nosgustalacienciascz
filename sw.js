@@ -8,7 +8,7 @@ const CACHE_NAME = 'v1_pwa_app_cache',
     'assets/js/script.js',
     'js/script2.js',
     'assets/images/logo/s2.png',
-    'assets/images/logo/s2.png'
+    'assets/images/logo/s2.png',
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
