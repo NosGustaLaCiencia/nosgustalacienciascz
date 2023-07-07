@@ -52,13 +52,15 @@ self.addEventListener('notificationclick', event => {
 });
 
 self.addEventListener('push', event => {
-  const options = {
-    body: 'Esta es una notificación push',
-    icon: 'assets/images/logo/s2.png',
-    vibrate: [200, 100, 200, 100, 200, 100, 200],
-  };
+  if (event.data) {
+    const options = {
+      body: event.data.text(),
+      icon: 'assets/images/logo/s2.png',
+    //   vibrate: [200, 100, 200, 100, 200, 100, 200],
+    };
 
-  event.waitUntil(
-    self.registration.showNotification('¡Hola!', options)
-  );
+    event.waitUntil(
+      self.registration.showNotification('¡Hola!', options)
+    );
+  }
 });
