@@ -1,61 +1,64 @@
-;
-//asignar un nombre y versión al cache
-const CACHE_NAME = 'v1_pwa_app_cache',
-  urlsToCache = [
-    './',
-    'index.html',
-    'assets/css/style.css',
-    'assets/js/script.js',
-    'js/script2.js',
-    'assets/images/logo/s2.png',
-    'assets/images/logo/s2.png',
-  ]
+const CACHE_NAME = 'v1_pwa_app_cache';
+const urlsToCache = [
+  './',
+  'index.html',
+  '404.html',
+  'assets/css/style.css',
+  'assets/js/script.js',
+  'js/script2.js',
+  'assets/images/logo/s2.png',
+  'assets/images/logo/s2.png',
+];
 
-//durante la fase de instalación, generalmente se almacena en caché los activos estáticos
-self.addEventListener('install', e => {
-  e.waitUntil(
+self.addEventListener('install', event => {
+  event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache)
-          .then(() => self.skipWaiting())
-      })
-      .catch(err => console.log('Falló registro de cache', err))
-  )
-})
+      .then(cache => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting())
+      .catch(error => console.log('Falló el registro de la caché', error))
+  );
+});
 
-//una vez que se instala el SW, se activa y busca los recursos para hacer que funcione sin conexión
-self.addEventListener('activate', e => {
-  const cacheWhitelist = [CACHE_NAME]
-
-  e.waitUntil(
+self.addEventListener('activate', event => {
+  event.waitUntil(
     caches.keys()
       .then(cacheNames => {
         return Promise.all(
-          cacheNames.map(cacheName => {
-            //Eliminamos lo que ya no se necesita en cache
-            if (cacheWhitelist.indexOf(cacheName) === -1) {
-              return caches.delete(cacheName)
-            }
-          })
-        )
+          cacheNames.filter(cacheName => cacheName !== CACHE_NAME)
+            .map(cacheName => caches.delete(cacheName))
+        );
       })
-      // Le indica al SW activar el cache actual
       .then(() => self.clients.claim())
-  )
-})
+  );
+});
 
-//cuando el navegador recupera una url
-self.addEventListener('fetch', e => {
-  //Responder ya sea con el objeto en caché o continuar y buscar la url real
-  e.respondWith(
-    caches.match(e.request)
-      .then(res => {
-        if (res) {
-          //recuperar del cache
-          return res
-        }
-        //recuperar de la petición a la url
-        return fetch(e.request)
-      }).catch(err => console.log('Falló algo al solicitar recursos', err))
-  )
-})
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        // Devuelve la respuesta almacenada en caché si está disponible
+        // o muestra una página de respaldo si no hay conexión a Internet
+        return response || caches.match('404.html');
+      })
+      .catch(error => console.log('Falló al solicitar recursos', error))
+  );
+});
+
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+
+  // Realiza la acción deseada al hacer clic en la notificación
+  // Por ejemplo, redirigir a una URL específica o ejecutar una función
+});
+
+self.addEventListener('push', event => {
+  const options = {
+    body: 'Esta es una notificación push',
+    icon: 'assets/images/logo/s2.png',
+    vibrate: [200, 100, 200, 100, 200, 100, 200],
+  };
+
+  event.waitUntil(
+    self.registration.showNotification('¡Hola!', options)
+  );
+});

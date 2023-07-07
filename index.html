@@ -7,22 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nos Gusta La Ciencia</title>
   <meta name="description" content="Programa de divulgación científica para estudiantes apasionados por STEM...">
- 
+
+  <!-- Metaetiqueta para el color de tema en dispositivos móviles -->
   <meta name="theme-color" content="#99ca61">
+
+  <!-- Metaetiquetas para optimización móvil -->
   <meta name="MobileOptimized" content="width">
   <meta name="HandheldFriendly" content="true">
+
+  <!-- Metaetiqueta para habilitar la instalación como una aplicación web en dispositivos móviles -->
   <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Metaetiqueta para personalizar la barra de estado en dispositivos iOS -->
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Icono de acceso directo en la barra de tareas y en dispositivos iOS -->
   <link rel="shortcut icon" type="image/png" href="assets/images/logo/s2.png">
   <link rel="apple-touch-icon" href="assets/images/logo/s2.png">
+
+  <!-- Imagen de inicio en dispositivos iOS -->
   <link rel="apple-touch-startup-image" href="assets/images/logo/s2.png">
+
+  <!-- Archivo de manifiesto de la aplicación web -->
   <link rel="manifest" href="./manifest.json">
   <!-- 
     - favicon
   -->
   <!-- <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml"> -->
-  <!-- <link rel="shortcut icon" href="assets/images/logo/NOS GUSTA LA CIENCIA.png" type="image/x-icon">
- -->
+   <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/s2.png" type="image/x-icon">
+
 
 
 
@@ -46,12 +59,176 @@
   <link rel="preload" as="image" href="./assets/images/hero-abs-2.png" media="min-width(768px)">
 
 </head>
-
 <script src="js/script2.js"></script>
 
 
-<script>
 
+<script>
+      // function mostrarNotificacion() {
+      //       if (!("Notification" in window)) {
+      //           alert("Tu navegador no soporta notificaciones push");
+      //           return;
+      //       }
+
+      //       if (Notification.permission === "granted") {
+      //           var notification = new Notification("¡Hola!", {
+      //               body: "Esta es una notificación push",
+      //               icon: "assets/images/logo/s2.png",
+      //               silent: true ,// Desactivar el sonido por defecto de la notificación
+        
+      //           });
+      //           reproducirSonido();
+      //       } else if (Notification.permission !== "denied") {
+      //           Notification.requestPermission().then(function(permission) {
+      //               if (permission === "granted") {
+      //                   var notification = new Notification("¡Hola!", {
+      //                       body: "Esta es una notificación push",
+      //                       icon: "assets/images/logo/s2.png",
+      //                       silent: true, // Desactivar el sonido por defecto de la notificación
+                    
+      //                   });
+      //                   reproducirSonido();
+      //               }
+      //           });
+      //       }
+      //   }
+
+      //   function reproducirSonido() {
+      //       var audio = document.getElementById("notificationSound");
+      //       audio.play();
+      //   }
+
+      //   function mostrarAlerta() {
+      //       mostrarNotificacion();
+      //   }
+
+      //   document.addEventListener('DOMContentLoaded', mostrarAlerta);
+      //   setInterval(mostrarAlerta, 20000);
+
+
+      function mostrarNotificacion() {
+  if (!("Notification" in window)) {
+    alert("Tu navegador no soporta notificaciones push");
+    return;
+  }
+
+  // Cargar el archivo JSON de la lista de notificaciones
+  fetch('notificacion.json')
+    .then(response => response.json())
+    .then(data => {
+      // Obtener la lista de notificaciones del JSON
+      var notificaciones = data.notificaciones;
+
+      // Verificar si hay notificaciones disponibles
+      if (notificaciones && notificaciones.length > 0) {
+        // Obtener la próxima notificación de la lista
+        var proximaNotificacion = notificaciones.shift();
+
+        // Mostrar la notificación obtenida
+        mostrarUnaNotificacion(proximaNotificacion);
+
+        // Reinsertar la notificación al final de la lista
+        notificaciones.push(proximaNotificacion);
+      }
+    })
+    .catch(error => console.log('Error al cargar el archivo JSON', error));
+}
+
+function mostrarUnaNotificacion(notificacion) {
+  var title = notificacion.title;
+  var body = notificacion.body;
+  var icon = notificacion.icon;
+  var silent = notificacion.silent;
+  var sound = notificacion.sound;
+
+  if (Notification.permission === "granted") {
+    var notification = new Notification(title, {
+      body: body,
+      icon: icon,
+      silent: silent
+    });
+    reproducirSonido(sound);
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(function(permission) {
+      if (permission === "granted") {
+        var notification = new Notification(title, {
+          body: body,
+          icon: icon,
+          silent: silent
+        });
+        reproducirSonido(sound);
+      }
+    });
+  }
+}
+
+function reproducirSonido(sound) {
+  if (sound) {
+    var audio = new Audio(sound);
+    audio.play();
+  }
+}
+
+function mostrarAlerta() {
+  mostrarNotificacion();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  mostrarAlerta();
+
+  // Programar la notificación cada 24 horas
+  setInterval(mostrarAlerta, 24 * 60 * 60 * 1000); // 24 horas en milisegundos
+
+  // Programar la notificación cada 5 minutos
+  //setInterval(mostrarAlerta, 5 * 60 * 1000); // 5 minutos en milisegundos
+});
+
+
+      
+
+        // function mostrarNotificacion2() {
+        //     if (Push.Permission.has()) {
+        //         Push.create("¡Hola!2", {
+        //             body: "Esta es una notificación push2",
+        //             icon: "assets/images/logo/s2.png",
+        //             sound: "assets/sonido/music.mp3",
+        //             timeout: 2000,
+        //             onClick: function() {
+        //                 window.focus();
+        //                 this.close();
+        //             }
+        //         });
+        //         reproducirSonido();
+        //     } else {
+        //         Swal.fire({
+        //             title: '¡Hola!',
+        //             text: 'Esta es una alerta',
+        //             icon: 'info',
+        //             timer: 2000,
+        //             timerProgressBar: true,
+        //             showConfirmButton: false,
+        //             toast: true,
+        //             position: 'top-end',
+        //             showClass: {
+        //                 popup: 'swal2-noanimation',
+        //                 backdrop: 'swal2-noanimation'
+        //             },
+        //             hideClass: {
+        //                 popup: '',
+        //                 backdrop: ''
+        //             }
+        //         });
+        //         reproducirSonido();
+        //     }
+        // }
+
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     mostrarNotificacion2();
+        // });
+        // setInterval(function() {
+        //     mostrarNotificacion2();
+        // }, 20000);
+    
 
 </script>
 
@@ -184,10 +361,15 @@
               Programa de divulgación científica para
                estudiantes apasionados por STEM...</p>
 
+
+               <!-- <a onclick="mostrarNotificacion()" href="#" class="btn btn-primary"> -->
             <a href="#" class="btn btn-primary">
               <span class="span">Empiece hoy</span>
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </a>
+
+            <audio id="notificationSound" src="assets/sonido/music.mp3" preload="auto"></audio>
+
           </div>
 
           <figure class="hero-banner">
