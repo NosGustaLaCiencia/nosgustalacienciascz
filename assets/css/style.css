@@ -1564,6 +1564,10 @@ body {
    * COURSE
    */
 
+.event-card{
+  background: #ffffff;
+}
+
   .course-card .card-content {
     padding-inline: 30px;
     padding-block-end: 30px;
