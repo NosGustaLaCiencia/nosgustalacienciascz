@@ -43,7 +43,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
-
+  <link rel="stylesheet" href="./assets/css/slider.css">
   <!-- 
     - google font link
   -->
@@ -59,11 +59,15 @@
   <link rel="preload" as="image" href="./assets/images/hero-abs-2.png" media="min-width(768px)">
 
 </head>
+
 <script src="js/script2.js"></script>
 
-
+<script src="assets/js/slider.js"></script>
 
 <script>
+
+
+
       // function mostrarNotificacion() {
       //       if (!("Notification" in window)) {
       //           alert("Tu navegador no soporta notificaciones push");
@@ -237,8 +241,9 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- 
     - #HEADER
   -->
-
   <header class="header" data-header>
+
+    <!-- <p class="social">nosgustalacienciabo@gmail.com</p> -->
     <div class="container">
       <img src="./assets/images/logo/s2.png" width="40" height="40" alt="hero image"> 
       <h1>
@@ -355,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="hero-content">
             <p class="section-subtitle">MEJOR FUTURO DE APRENDIZAJE CON NOSOTROS</p>
             <h2 class="h1 hero-title">
-              Somos un programa de divulgación científica de la Asociación Civil Eureka Ciencia en Santa Cruz de la Sierra, Bolivia.
+              Somos un programa de divulgación científica .
             </h2>
             <p class="hero-text">
               Programa de divulgación científica para
@@ -406,21 +411,25 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
 
           <figure class="hero-banner">
-            <img src="./assets/images/logo/s2.png" width="500" height="500" loading="lazy" alt="hero image"
+            <img src="./assets/images/logo/logo2.png" width="500" height="500" loading="lazy" alt="hero image"
               class="w-100-hero">
-              <img src="./assets/images/logo/2.jpg"  loading="lazy" aria-hidden="true"
+              <!-- <img src="./assets/images/logo/2.jpg"  loading="lazy" aria-hidden="true"
               class="abs-img abs-img-3">
               <img src="./assets/images/logo/1.jpg "  loading="lazy" aria-hidden="true"
               class="abs-img abs-img-4">
               <img src="./assets/images/logo/1.jpg "  loading="lazy" aria-hidden="true"
-              class="abs-img abs-img-5"> 
+              class="abs-img abs-img-5">  -->
           </figure>
+
+
+
+
+	
+
+
+
         </div>
       </section>
-
-
-
-
 
 
       <!-- 
@@ -628,8 +637,8 @@ document.addEventListener('DOMContentLoaded', function() {
               
             <!-- <img src="./assets/images/banner/1.png" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-1"> -->
-            <img src="./assets/images/banner/1.png" loading="lazy" aria-hidden="true"
-              class="abs-img abs-img-0"> 
+            <!-- <img src="./assets/images/banner/1.png" loading="lazy" aria-hidden="true"
+              class="abs-img abs-img-0">  -->
               
     
               <!-- <img src="./assets/images/banner/1.png" 
@@ -642,6 +651,15 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="about-content">
             <p class="section-subtitle">¿Quienes Somos?</p>
             <h2 class="h2 section-title">¿Quienes Somos?</h2>
+            <p class="item-text">
+              Somos una organización de jóvenes científicos bolivianos, 
+              fundada en julio del 2019 en la ciudad de Santa Cruz, Bolivia.
+               El programa busca fomentar la curiosidad científica mediante la motivación 
+               y la pasión en seguir áreas STEM (Ciencia, tecnología, ingeniería y matemáticas), con la finalidad de despertar el interés por la ciencia y la tecnología en estudiantes de secundaria y primeros semestres de universidad del país. Creamos mediante este proceso, 
+              una comunidad científica en la que se promueven actividades y eventos relacionados a STEM.
+  
+            </p>
+
             <ul class="about-list">
               <li class="about-item">
                 <div class="item-icon item-icon-1">
@@ -651,25 +669,23 @@ document.addEventListener('DOMContentLoaded', function() {
                   <h3 class="h3 item-title">MISIÓN</h3>
 
                   <p class="item-text">
-                    La misión del programa de NGC es promover el conocimiento científico a través de proyectos de calidad en STEM, fortaleciendo la capacidad científica y tecnológica del país y fomentando una cultura científica en la juventud boliviana 
-                    mediante la divulgación del conocimiento.
+                    La misión del programa de NGC es contribuir a la creación, desarrollo y difusión del conocimiento científico, a través de diversos proyectos de calidad relacionados al área STEM (Ciencia, tecnología, ingeniería y matemáticas), fortalecer la capacidad científica y tecnológica del país, de esta forma coadyuvar al desarrollo de una cultura científica y tecnológica en la juventud boliviana, a través de la divulgación y difusión del conocimiento científico.
                   </p>
                 </div>
 
               </li>
 
-              <!-- <li class="about-item">
+              <li class="about-item">
                 <div class="item-icon item-icon-2">
                   <img src="./assets/images/about-icon-2.png" width="30" height="30" loading="lazy" aria-hidden="true">
                 </div>
                 <div>
                   <h3 class="h3 item-title">VISIÓN</h3>
                   <p class="item-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmoded tempor incididunt dolore magna
-                    aliqua.
+                    El programa de divulgación científica NGC es una organización líder en la promoción, la generación, la aplicación e innovación de conocimientos científicos; fomenta la curiosidad científica, mediante la motivación y la pasión en seguir áreas STEM, con la finalidad de aportar al crecimiento intelectual y creativo del estudiante en conjunto a su comunidad. Promueve el mejoramiento de la educación científica en todas sus modalidades; tiene un impacto sustancial en la búsqueda de soluciones a problemas contemporáneos de importancia departamental, nacional, regional y mundial; reúne, integra y conserva mejor talento científico disponible en el país; y sirve de modelo, a través del cumplimiento de sus principios.
                   </p>
                 </div>
-              </li> -->
+              </li>
 
               <li class="about-item">
 
@@ -715,7 +731,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           <p class="section-subtitle">Nos Gusta La Ciencia es un programa de divulgación científica</p>
 
-          <h2 class="h2 section-title">Programa & Proyectos</h2>
+          <h2 class="h2 section-title">Proyectos</h2>
 
           <ul class="grid-list">
 
@@ -1134,7 +1150,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
+                    <img class="img-Organizers" src="assets/images/Organizers/ivan.png" alt="Organizers">
                   </center>
                   <h3 class="h3 item-title-Organizers">Ivan Sangueza</h3>
                   <p class="item-Organizers">
@@ -1165,7 +1181,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
+                    <img class="img-Organizers" src="assets/images/Organizers/Sharon.png" alt="Organizers">
                   </center>
                   <h3 class="h3 item-title-Organizers">Sharon Maygua</h3>
                   <p class="item-Organizers">
@@ -1244,7 +1260,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
+                    <img class="img-Organizers" src="assets/images/Organizers/Steohanie_Saavedra.png" alt="Organizers">
                   </center>
                   <h3 class="h3 item-title-Organizers">Stephanie Saavedra</h3>
                   <p class="item-Organizers">
@@ -1261,7 +1277,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
+                    <img class="img-Organizers" src="assets/images/Organizers/Nicole_Chambi.png" alt="Organizers">
                   </center>
                   <h3 class="h3 item-title-Organizers">Nicole Chambi</h3>
                   <p class="item-Organizers">
