@@ -357,23 +357,40 @@ body {
 /*-----------------------------------*\
   #Partners
 \*-----------------------------------*/
-.carousel-partners {
+/* .carousel-partners {
   margin: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1px;
+} */
+
+.carousel-partners {
+  gap: 1px;
+  margin: 10px;
+  display: flex;
+  flex-wrap: nowrap; /* Evita que se envuelvan las imágenes en varias filas */
+  overflow: hidden; /* Oculta el contenido que excede el ancho del carousel */
+
+overflow-x: scroll; /* Habilita el desplazamiento horizontal */
+scroll-snap-type: x mandatory; /* Aplica desplazamiento en incrementos */
+-webkit-overflow-scrolling: touch; /* Desplazamiento suave en iOS */
+-ms-overflow-style: none; /* Oculta las barras de desplazamiento en IE y Edge */
+scrollbar-width: none; /* Oculta las barras de desplazamiento en Firefox */
 }
 
-.content-partners
-{
- 
-  margin: 5px;
+.carousel-partners::-webkit-scrollbar {
+display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari) */
+}
 
+
+.content-partners {
+  margin: 0px;
+  flex: 0 0 auto; /* Establece el tamaño del contenedor de partners */
 }
 .img-partners {
-  max-width: 250px;
-  max-height: 80px;
+  max-width: 170px;
+  max-height: 70px;
   box-sizing: border-box;
   transition: transform 0.3s ease; /* Agrega una transición suave al transformar */
 }
@@ -390,6 +407,58 @@ body {
   color: #363636;
   font-size: 15px;
 } */
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 400px) {
+  .carousel-partners {
+    margin: 0px;
+    display: flex;
+   
+    flex-wrap: nowrap;
+    overflow-x: scroll; /* Habilita el desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* Aplica desplazamiento en incrementos */
+    -webkit-overflow-scrolling: touch; /* Desplazamiento suave en iOS */
+    -ms-overflow-style: none; /* Oculta las barras de desplazamiento en IE y Edge */
+    scrollbar-width: none; /* Oculta las barras de desplazamiento en Firefox */
+  }
+
+  .carousel-partners::-webkit-scrollbar {
+    display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari) */
+  }
+  
+  
+  .content-partners {
+    margin: 0px; /* Añade un margen para separar las imágenes */
+    scroll-snap-align: center; /* Centra cada imagen al desplazarse */
+    flex: 0 0 auto; /* Establece el tamaño del contenedor de partners */
+  
+  }
+  .about-partners
+  {
+    width: auto;
+    margin: 1px;
+    max-width: 30px; /* Ajusta el ancho de las imágenes al 100% del contenedor */
+    box-sizing: border-box;
+    transition: transform 0.3s ease; /* Agrega una transición suave al transformar */
+
+  }
+  .img-partners {
+
+    max-width: 30px;
+    max-height: 50px;
+    
+  }
+
+  .img-partners:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen en un 10% */
+    opacity: 0.8; /* Reduce la opacidad de la imagen al pasar el cursor por encima */
+    filter: grayscale(100%); /* Convierte la imagen a escala de grises */
+    cursor: pointer; /* Cambia el cursor a un puntero */
+  }
+
+}
+
+
 
 
 /*-----------------------------------*\

@@ -46,6 +46,36 @@ for (let i = 0; i < navTogglers.length; i++) {
 //   setInterval(slide, interval);
 // });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const carouselContainer = document.querySelector('.carousel-partners');
+  const partners = carouselContainer.querySelectorAll('.content-partners');
+
+  let currentPosition = 0;
+  let slideWidth = partners[0].offsetWidth;
+  let interval;
+
+  function startCarousel() {
+    interval = setInterval(function() {
+      currentPosition -= slideWidth;
+      if (currentPosition <= -(partners.length - 1) * slideWidth) {
+        // Reinicia la posición al inicio sin interrupción
+        carouselContainer.style.transition = 'none';
+        currentPosition = 0;
+
+        // Realiza el cambio de posición en el siguiente frame
+        requestAnimationFrame(function() {
+          carouselContainer.style.transition = 'transform 0.3s ease';
+          carouselContainer.style.transform = `translateX(${currentPosition}px)`;
+        });
+      } else {
+        carouselContainer.style.transform = `translateX(${currentPosition}px)`;
+      }
+    }, 3000); // Cambia la imagen cada 3 segundos (ajusta el valor según tus necesidades)
+  }
+
+  startCarousel();
+});
+
 
 /**
  * header sticky & back to top button
