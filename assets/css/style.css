@@ -1368,6 +1368,7 @@ font-size: 14px;
 .footer .section-text { margin-block: 25px 35px; }
 
 .social-list {
+  margin: 5px;
   display: flex;
   justify-content: center; /* Centra los elementos horizontalmente */
   align-items: center;

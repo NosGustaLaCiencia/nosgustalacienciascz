@@ -11,6 +11,20 @@ const CACHE_NAME = 'v1_pwa_app_cache',
     'assets/images/logo/s2.png',
   ]
 
+  self.addEventListener("install", (e) => {
+    e.waitUntil(
+        caches.open(CACHE_NAME)//retorna una promesa
+            .then(cache =>{cache.addAll(CACHE_ELEMENTS)//al pasarle addAll hacemos que pase todas las ruta al serviceWorker y devuelve una promesa
+                .then( () => {
+                    self.skipWaiting()
+                }).catch(console.log)
+            }
+        )
+    )
+    
+  })
+
+  
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -59,3 +73,6 @@ self.addEventListener('fetch', e => {
       }).catch(err => console.log('Falló algo al solicitar recursos', err))
   )
 })
+
+
+
