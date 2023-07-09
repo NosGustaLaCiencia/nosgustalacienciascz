@@ -42,10 +42,60 @@
 
 
 
+  .cover-container {
+    margin: -70px;
+    position: relative;
+    height: 95vh; /* Ajusta la altura de la portada a la altura de la ventana */
+    background-color: #011113; /* Color de fondo principal */
+  }
+  
+  .cover-container img {
+    display: block;
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    opacity: 0.2; /* Opacidad de la imagen de fondo */
+  }
+  
+  .cover-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ECAB2B; /* Color del texto principal */
+  }
+  
+/* Estilos para dispositivos móviles */
+@media (max-width: 400px) {
+  .cover-container {
+    position: relative;
+    height: 94vh; /* Ajusta la altura de la portada a la altura de la ventana */
+    background-color: #ffffff; /* Color de fondo principal */
 
-
-
-
-
-
+    margin: -1px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cover-container img {  
+    height: 180px;
+    width: 400px;
+    opacity: 0.9; /* Opacidad de la imagen de fondo */
+    
+  }
+  
+  .cover-content {
+    font-size: 12px;
+    padding: 5px;
+    width: 400px;
+    position: static;
+    transform: none;
+    text-align: center;
+    color: #ECAB2B; /* Color del texto principal */
+  }
+}
 

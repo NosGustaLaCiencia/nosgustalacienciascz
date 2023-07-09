@@ -799,13 +799,26 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
   #HERO
 \*-----------------------------------*/
 
-.hero {
+/* .hero {
   padding-block-start: calc(60px + var(--section-padding));
   padding-block-end: var(--section-padding);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+} */
+
+
+.hero {
+  padding-block-start: calc(50px + var(--section-padding));
+  padding-block-end: 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background: #FFFFFF;
+
 }
+
+
 
 .hero .container {
   display: grid;
@@ -1356,9 +1369,12 @@ font-size: 14px;
 
 .social-list {
   display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
   align-items: center;
   gap: 10px;
+  color: #e5e5e4;
 }
+
 
 .social-link {
   background-color: var(--white_10);
