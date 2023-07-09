@@ -1,0 +1,51 @@
+.slider-container{
+    width: 370px;
+    height: 270px;
+    overflow: hidden;
+  }
+  
+  .slider-container2{
+    width: 370px;
+    height: 270px;
+    overflow: hidden;
+  }
+  
+  .slider-container3{
+    width: 370px;
+    height: 270px;
+    overflow: hidden;
+  }
+  
+
+
+  .card-banner {
+    /* display: flex; */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  .card-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
