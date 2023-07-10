@@ -73,49 +73,6 @@
 <script>
 
 
-
-      // function mostrarNotificacion() {
-      //       if (!("Notification" in window)) {
-      //           alert("Tu navegador no soporta notificaciones push");
-      //           return;
-      //       }
-
-      //       if (Notification.permission === "granted") {
-      //           var notification = new Notification("¡Hola!", {
-      //               body: "Esta es una notificación push",
-      //               icon: "assets/images/logo/s2.png",
-      //               silent: true ,// Desactivar el sonido por defecto de la notificación
-        
-      //           });
-      //           reproducirSonido();
-      //       } else if (Notification.permission !== "denied") {
-      //           Notification.requestPermission().then(function(permission) {
-      //               if (permission === "granted") {
-      //                   var notification = new Notification("¡Hola!", {
-      //                       body: "Esta es una notificación push",
-      //                       icon: "assets/images/logo/s2.png",
-      //                       silent: true, // Desactivar el sonido por defecto de la notificación
-                    
-      //                   });
-      //                   reproducirSonido();
-      //               }
-      //           });
-      //       }
-      //   }
-
-      //   function reproducirSonido() {
-      //       var audio = document.getElementById("notificationSound");
-      //       audio.play();
-      //   }
-
-      //   function mostrarAlerta() {
-      //       mostrarNotificacion();
-      //   }
-
-      //   document.addEventListener('DOMContentLoaded', mostrarAlerta);
-      //   setInterval(mostrarAlerta, 20000);
-
-
       function mostrarNotificacion() {
   if (!("Notification" in window)) {
     alert("Tu navegador no soporta notificaciones push");
@@ -192,53 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Programar la notificación cada 5 minutos
   //setInterval(mostrarAlerta, 5 * 60 * 1000); // 5 minutos en milisegundos
 });
-
-
-      
-
-        // function mostrarNotificacion2() {
-        //     if (Push.Permission.has()) {
-        //         Push.create("¡Hola!2", {
-        //             body: "Esta es una notificación push2",
-        //             icon: "assets/images/logo/s2.png",
-        //             sound: "assets/sonido/music.mp3",
-        //             timeout: 2000,
-        //             onClick: function() {
-        //                 window.focus();
-        //                 this.close();
-        //             }
-        //         });
-        //         reproducirSonido();
-        //     } else {
-        //         Swal.fire({
-        //             title: '¡Hola!',
-        //             text: 'Esta es una alerta',
-        //             icon: 'info',
-        //             timer: 2000,
-        //             timerProgressBar: true,
-        //             showConfirmButton: false,
-        //             toast: true,
-        //             position: 'top-end',
-        //             showClass: {
-        //                 popup: 'swal2-noanimation',
-        //                 backdrop: 'swal2-noanimation'
-        //             },
-        //             hideClass: {
-        //                 popup: '',
-        //                 backdrop: ''
-        //             }
-        //         });
-        //         reproducirSonido();
-        //     }
-        // }
-
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     mostrarNotificacion2();
-        // });
-        // setInterval(function() {
-        //     mostrarNotificacion2();
-        // }, 20000);
-    
 
 </script>
 
@@ -353,7 +263,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
   <main>
     <article>
 
@@ -377,11 +286,12 @@ document.addEventListener('DOMContentLoaded', function() {
                  estudiantes apasionados por STEM...</p>
                  
                  <center>
-                  <a href="#" class="btn btn-primary">
+                  <a href="#" class="btn btn-primary" id="notificationSound">
                     <span class="span">Empiece hoy</span>
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                   </a>
                   <audio id="notificationSound" src="assets/sonido/music.mp3" preload="auto"></audio>        
+
 
                   <ul class="social-list">
                     <li>
@@ -600,29 +510,24 @@ document.addEventListener('DOMContentLoaded', function() {
       <section class="section about" id="about" style="background: linear-gradient(#fcffc8, #ffffff);" aria-label="about">
         <div class="container">
 
-          <figure class="about-banner">
-
-            <img src="./assets/images/banner/2.png" 
-             loading="lazy" alt="about banner"
-              class="w-100 about-img">
-
-
-              <img src="./assets/images/banner/1.png" 
-              loading="lazy" 
-              aria-hidden="true" class="abs-img abs-img-1">
-
-              
-            <!-- <img src="./assets/images/banner/1.png" loading="lazy" aria-hidden="true"
-              class="abs-img abs-img-1"> -->
-            <!-- <img src="./assets/images/banner/1.png" loading="lazy" aria-hidden="true"
-              class="abs-img abs-img-0">  -->
-              
-    
-              <!-- <img src="./assets/images/banner/1.png" 
-              width="150" height="200" loading="lazy" 
-              aria-hidden="true" class="abs-img abs-img-2"> -->
-          </figure>
-
+          <div class="about-banner">
+                <div class="image-container">
+                  <img src="./assets/images/banner/2.png" loading="lazy" alt="about banner">
+                </div>
+                <div class="image-container">
+                  <img src="./assets/images/banner/1.png" loading="lazy" alt="about banner">
+                </div>
+                <div class="image-container">
+                  <img src="./assets/images/banner/1.png" loading="lazy" alt="about banner">
+                </div>
+                <div class="image-container">
+                  <img src="./assets/images/banner/2.png" loading="lazy" alt="about banner">
+                </div>
+              </div>
+            
+          
+          
+            
 
        
           <div class="about-content">
@@ -659,23 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
               </li>
 
-              <!-- <li class="about-item">
-
-                <div class="item-icon item-icon-3">
-                  <img src="./assets/images/about-icon-3.png" width="30" height="30" loading="lazy" aria-hidden="true">
-                </div>
-
-                <div>
-                  <h3 class="h3 item-title">OTROS</h3>
-
-                  <p class="item-text">
-                    Somos una organización de jóvenes científicos bolivianos fundada en julio de 2019 en Santa Cruz, Bolivia. Nuestro programa busca fomentar la curiosidad científica y el interés por STEM en estudiantes de secundaria y primeros semestres universitarios. Creamos una comunidad científica 
-                    con actividades y eventos relacionados a STEM.
-                  </p>
-                </div>
-
-              </li> -->
-
+            
             </ul>
 
             <a href="#" class="btn btn-primary">
@@ -687,6 +576,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
           </div>
         </div>
+
+      </div>
       </section>
 
 
@@ -987,10 +878,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </li>
 
     
-
+<!-- 
             <li>
               <div class="course-card">
-
                 <div class="slider-container3">
                   <figure class="card-banner">
                     <img src="./assets/images/proyectos/Club_de_chicas_programadoras/3.JPG" width="370" height="270" loading="lazy"
@@ -1001,14 +891,9 @@ document.addEventListener('DOMContentLoaded', function() {
                       alt="De la imaginación a la impresión 3D" class="img-cover">
                       <img src="./assets/images/proyectos/Club_de_chicas_programadoras/4.JPG" width="370" height="270" loading="lazy"
                       alt="De la imaginación a la impresión 3D" class="img-cover">  
-
                   </figure>
                 </div>
-
                 <div class="card-actions">
-
-                  <!-- <span class="badge">Advanced</span> -->
-
                   <button class="whishlist-btn" aria-label="Add to whishlist" data-whish-btn>
                     <ion-icon name="heart"></ion-icon>
                   </button>
@@ -1045,9 +930,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   </p>
                 
                   <div class="card-footer">
-                    <!-- <div class="card-price">
-                      <span class="span">Free</span>
-                    </div> -->
                     <a href="#" class="btn-link">
                       <span class="span">Ver detalle</span>
                       <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -1059,7 +941,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
                 </div>
               </div>
-            </li>
+            </li> -->
 
             <!-- <li>
               
