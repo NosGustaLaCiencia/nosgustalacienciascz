@@ -3,11 +3,14 @@ const urlsToCache = [
   './',
   'index.html',
   'assets/css/style.css',
+  'assets/css/slider.css',
   'assets/js/script.js',
+  'assets/js/slider.js',
   'js/script2.js',
   'assets/images/logo/s2.png',
   'assets/images/.*',
   'assets/sonido/musica.mp3',
+
 ];
 
 self.addEventListener("install", (e) => {
