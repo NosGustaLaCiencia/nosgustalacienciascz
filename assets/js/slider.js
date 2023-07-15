@@ -1,3 +1,19 @@
+var slides = document.querySelectorAll('.slide4');
+var currentSlide = 0;
+var slideInterval = setInterval(nextSlide, 5000); // Cambia cada 5 segundos
+
+function nextSlide() {
+  slides[currentSlide].style.display = 'none';
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].style.display = 'block';
+}
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const sliderContainers = document.querySelectorAll('.slider-container');
     const slideWidths = [];

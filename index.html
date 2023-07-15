@@ -38,7 +38,7 @@
     - favicon
   -->
   <!-- <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml"> -->
-   <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/s2.png" type="image/x-icon">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/s2.png" type="image/x-icon">
 
 
 
@@ -73,82 +73,82 @@
 <script>
 
 
-      function mostrarNotificacion() {
-  if (!("Notification" in window)) {
-    alert("Tu navegador no soporta notificaciones push");
-    return;
+  function mostrarNotificacion() {
+    if (!("Notification" in window)) {
+      alert("Tu navegador no soporta notificaciones push");
+      return;
+    }
+
+    // Cargar el archivo JSON de la lista de notificaciones
+    fetch('https://raw.githubusercontent.com/NosGustaLaCiencia/nosgustalacienciascz/main/notificacion.json')
+      .then(response => response.json())
+      .then(data => {
+        // Obtener la lista de notificaciones del JSON
+        var notificaciones = data.notificaciones;
+
+        // Verificar si hay notificaciones disponibles
+        if (notificaciones && notificaciones.length > 0) {
+          // Obtener la próxima notificación de la lista
+          var proximaNotificacion = notificaciones.shift();
+
+          // Mostrar la notificación obtenida
+          mostrarUnaNotificacion(proximaNotificacion);
+
+          // Reinsertar la notificación al final de la lista
+          notificaciones.push(proximaNotificacion);
+        }
+      })
+      .catch(error => console.log('Error al cargar el archivo JSON', error));
   }
 
-  // Cargar el archivo JSON de la lista de notificaciones
-  fetch('https://raw.githubusercontent.com/NosGustaLaCiencia/nosgustalacienciascz/main/notificacion.json')
-    .then(response => response.json())
-    .then(data => {
-      // Obtener la lista de notificaciones del JSON
-      var notificaciones = data.notificaciones;
+  function mostrarUnaNotificacion(notificacion) {
+    var title = notificacion.title;
+    var body = notificacion.body;
+    var icon = notificacion.icon;
+    var silent = notificacion.silent;
+    var sound = notificacion.sound;
 
-      // Verificar si hay notificaciones disponibles
-      if (notificaciones && notificaciones.length > 0) {
-        // Obtener la próxima notificación de la lista
-        var proximaNotificacion = notificaciones.shift();
-
-        // Mostrar la notificación obtenida
-        mostrarUnaNotificacion(proximaNotificacion);
-
-        // Reinsertar la notificación al final de la lista
-        notificaciones.push(proximaNotificacion);
-      }
-    })
-    .catch(error => console.log('Error al cargar el archivo JSON', error));
-}
-
-function mostrarUnaNotificacion(notificacion) {
-  var title = notificacion.title;
-  var body = notificacion.body;
-  var icon = notificacion.icon;
-  var silent = notificacion.silent;
-  var sound = notificacion.sound;
-
-  if (Notification.permission === "granted") {
-    var notification = new Notification(title, {
-      body: body,
-      icon: icon,
-      silent: silent
-    });
-    reproducirSonido(sound);
-  } else if (Notification.permission !== "denied") {
-    Notification.requestPermission().then(function(permission) {
-      if (permission === "granted") {
-        var notification = new Notification(title, {
-          body: body,
-          icon: icon,
-          silent: silent
-        });
-        reproducirSonido(sound);
-      }
-    });
+    if (Notification.permission === "granted") {
+      var notification = new Notification(title, {
+        body: body,
+        icon: icon,
+        silent: silent
+      });
+      reproducirSonido(sound);
+    } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          var notification = new Notification(title, {
+            body: body,
+            icon: icon,
+            silent: silent
+          });
+          reproducirSonido(sound);
+        }
+      });
+    }
   }
-}
 
-function reproducirSonido(sound) {
-  if (sound) {
-    var audio = new Audio(sound);
-    audio.play();
+  function reproducirSonido(sound) {
+    if (sound) {
+      var audio = new Audio(sound);
+      audio.play();
+    }
   }
-}
 
-function mostrarAlerta() {
-  mostrarNotificacion();
-}
+  function mostrarAlerta() {
+    mostrarNotificacion();
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
-  mostrarAlerta();
+  document.addEventListener('DOMContentLoaded', function () {
+    mostrarAlerta();
 
-  // Programar la notificación cada 24 horas
-  setInterval(mostrarAlerta, 24 * 60 * 60 * 1000); // 24 horas en milisegundos
+    // Programar la notificación cada 24 horas
+    setInterval(mostrarAlerta, 24 * 60 * 60 * 1000); // 24 horas en milisegundos
 
-  // Programar la notificación cada 5 minutos
-  //setInterval(mostrarAlerta, 5 * 60 * 1000); // 5 minutos en milisegundos
-});
+    // Programar la notificación cada 5 minutos
+    //setInterval(mostrarAlerta, 5 * 60 * 1000); // 5 minutos en milisegundos
+  });
 
 </script>
 
@@ -161,20 +161,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- <p class="social">nosgustalacienciabo@gmail.com</p> -->
     <div class="container">
-      <img src="./assets/images/logo/s2.png" width="40" height="40" alt="hero image"> 
+      <img src="./assets/images/logo/s2.png" width="40" height="40" alt="hero image">
       <h1>
         <a href="#" class="logo">
           Nos Gusta La Ciencia
         </a>
       </h1>
-      
-     
+
+
       <nav class="navbar" data-navbar>
         <div class="navbar-top">
 
           <!-- <img src="./assets/images/logo/s2.png" width="20" height="20" alt="hero image">  -->
           <a href="#" class="logo">
-           
+
             Nos Gusta La Ciencia</a>
           <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
             <ion-icon name="close-outline"></ion-icon>
@@ -268,60 +268,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-      
+
       <!-- 
         - #HERO
       -->
 
       <section class="hero" id="home" aria-label="hero">
-          <div class="cover-container">
-            <img src="./assets/images/logo/logo2.png" loading="lazy" alt="hero image">
-            <div class="cover-content">
-              <p class="section-subtitle">MEJOR FUTURO DE APRENDIZAJE CON NOSOTROS</p>
-              <h2 class="h1 hero-title">
-                Somos un programa de divulgación científica .
-              </h2>
-              <p class="hero-text">
-                Programa de divulgación científica para
-                 estudiantes apasionados por STEM...</p>
-                 
-                 <center>
-                  <a href="#" class="btn btn-primary" id="notificationSound">
-                    <span class="span">Empiece hoy</span>
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        <div class="cover-container">
+          <img src="./assets/images/logo/logo2.png" loading="lazy" alt="hero image">
+          <div class="cover-content">
+            <p class="section-subtitle">TU MEJOR FUTURO DE APRENDIZAJE CON NOSOTROS</p>
+            <h2 class="h1 hero-title">
+              Somos un programa de divulgación científica .
+            </h2>
+            <p class="hero-text">
+              Para estudiantes apasionados en areas TEMS....</p>
+
+            <center>
+              <a href="#" class="btn btn-primary" id="notificationSound">
+                <span class="span">Empiece hoy</span>
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+              <audio id="notificationSound" src="assets/sonido/music.mp3" preload="auto"></audio>
+
+
+              <ul class="social-list">
+                <li>
+                  <a target="_blank" href="https://www.facebook.com/nosgustalacienciabo" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
                   </a>
-                  <audio id="notificationSound" src="assets/sonido/music.mp3" preload="auto"></audio>        
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/nosgustalaciencia/" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/nos-gusta-la-ciencia/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+              </ul>
+
+            </center>
 
 
-                  <ul class="social-list">
-                    <li>
-                      <a target="_blank" href="https://www.facebook.com/nosgustalacienciabo" class="social-link">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.instagram.com/nosgustalaciencia/" class="social-link">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/company/nos-gusta-la-ciencia/"  class="social-link">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                      </a>
-                    </li>
-                  </ul>
 
-                 </center>
- 
 
-            </div>
+
           </div>
+        </div>
       </section>
 
-    
+
+
+
+
+
+
       <!-- 
         - #CATEGORY
-      --> 
+      -->
 
       <!-- <section class="section category" aria-label="category">
         <div class="container">
@@ -498,43 +505,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
         </div>
       </section>   -->
-      
 
 
-  
+
+
       <!-- 
         - #ABOUT
       -->
 
 
-      <section class="section about" id="about" style="background: linear-gradient(#fcffc8, #ffffff);" aria-label="about">
+      <section class="section about" id="about" style="background: linear-gradient(#fcffc8, #ffffff);"
+        aria-label="about">
         <div class="container">
 
           <div class="about-banner">
-                <div class="image-container">
-                  <img src="./assets/images/banner/2.png" loading="lazy" alt="about banner">
-                </div>
-                <div class="image-container">
-                  <img src="./assets/images/banner/1.png" loading="lazy" alt="about banner">
-                </div>
-                <div class="image-container">
-                  <img src="./assets/images/banner/1.png" loading="lazy" alt="about banner">
-                </div>
-                <div class="image-container">
-                  <img src="./assets/images/banner/2.png" loading="lazy" alt="about banner">
-                </div>
-              </div>
-            
-          
-          
-            
+            <div class="image-container">
+              <img src="./assets/images/banner/2.png" loading="lazy" alt="about banner">
+            </div>
+            <div class="image-container">
+              <img src="./assets/images/banner/1.png" loading="lazy" alt="about banner">
+            </div>
+            <div class="image-container">
+              <img src="./assets/images/banner/1.png" loading="lazy" alt="about banner">
+            </div>
+            <div class="image-container">
+              <img src="./assets/images/banner/2.png" loading="lazy" alt="about banner">
+            </div>
+          </div>
 
-       
+
+
+
+
+
           <div class="about-content">
             <p class="section-subtitle">¿Quienes Somos?</p>
             <h2 class="h2 section-title">¿Quienes Somos?</h2>
             <p class="item-text">
-              Somos una organización de jóvenes científicos bolivianos, que busca fomentar la curiosidad científica mediante la motivación y la pasión a seguir áreas STEM (Ciencia, tecnología, ingeniería y matemáticas), con la finalidad de despertar el interés por la ciencia y la tecnología en estudiantes de nuestro País. Hemos sido creados en julio del 2019 en la ciudad de Santa Cruz, Bolivia.
+              Somos una organización de jóvenes científicos bolivianos, que busca fomentar la curiosidad científica
+              mediante la motivación y la pasión a seguir áreas STEM (Ciencia, tecnología, ingeniería y matemáticas),
+              con la finalidad de despertar el interés por la ciencia y la tecnología en estudiantes de nuestro País.
+              Hemos sido creados en julio del 2019 en la ciudad de Santa Cruz, Bolivia.
             </p>
 
             <ul class="about-list">
@@ -546,7 +557,10 @@ document.addEventListener('DOMContentLoaded', function() {
                   <h3 class="h3 item-title">MISIÓN</h3>
 
                   <p class="item-text">
-                    La misión de NGC es contribuir al desarrollo y difusión del conocimiento científico, a través de diversos proyectos relacionados con el área STEM (Ciencia, tecnología, ingeniería y matemáticas), con en fin de coadyuvar al desarrollo de una cultura científica y tecnológica en la juventud boliviana, a través de la divulgación y difusión del conocimiento científico.
+                    La misión de NGC es contribuir al desarrollo y difusión del conocimiento científico, a través de
+                    diversos proyectos relacionados con el área STEM (Ciencia, tecnología, ingeniería y matemáticas),
+                    con en fin de coadyuvar al desarrollo de una cultura científica y tecnológica en la juventud
+                    boliviana, a través de la divulgación y difusión del conocimiento científico.
                   </p>
                 </div>
 
@@ -559,12 +573,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div>
                   <h3 class="h3 item-title">VISIÓN</h3>
                   <p class="item-text">
-                    NGC es una organización líder en la promoción, la generación, la aplicación e innovación de conocimientos científicos; fomenta la curiosidad científica, mediante talleres afines al área STEM, con la finalidad de aportar al crecimiento intelectual y creativo del estudiante en conjunto a su comunidad. Promueve el mejoramiento de la educación científica en todas sus modalidades..
+                    NGC es una organización líder en la promoción, la generación, la aplicación e innovación de
+                    conocimientos científicos; fomenta la curiosidad científica, mediante talleres afines al área STEM,
+                    con la finalidad de aportar al crecimiento intelectual y creativo del estudiante en conjunto a su
+                    comunidad. Promueve el mejoramiento de la educación científica en todas sus modalidades..
                   </p>
                 </div>
               </li>
 
-            
+
             </ul>
 
             <a href="#" class="btn btn-primary">
@@ -577,13 +594,13 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
-      </div>
+        </div>
       </section>
 
 
 
 
-      
+
       <!-- 
         - #COURSE
       -->
@@ -592,34 +609,34 @@ document.addEventListener('DOMContentLoaded', function() {
         style="background-image: url('./assets/images/course-bg.jpg')">
         <div class="container">
 
-          <p class="section-subtitle">Nos Gusta La Ciencia es un programa de divulgación científica</p>
+          <p class="section-subtitle">NUESTROS</p>
 
-          <h2 class="h2 section-title">Proyectos</h2>
+          <h2 class="h2 section-title">PROYECTOS</h2>
 
           <ul class="grid-list">
 
             <li>
               <div class="course-card">
-<!-- 
+                <!-- 
                 <figure class="card-banner">
                   <img src="./assets/images/Popular/1.jpg" width="370" height="270" loading="lazy"
                     alt="Competitive Strategy law for all Estudiantes" class="img-cover">
                   </figure> -->
 
-      
 
 
-                  <div class="slider-container">
-                    <figure class="card-banner">
-                      <img src="./assets/images/proyectos/Ciencia_en_ciudadelas/1.jpg" width="370" height="270" loading="lazy"
-                        alt="De la imaginación a la impresión 3D" class="img-cover">
-                      <img src="./assets/images/proyectos/Ciencia_en_ciudadelas/2.jpg" width="370" height="270" loading="lazy"
-                        alt="De la imaginación a la impresión 3D" class="img-cover">
 
-                  
-                    </figure>
-                  </div>
-                  
+                <div class="slider-container">
+                  <figure class="card-banner">
+                    <img src="./assets/images/proyectos/Ciencia_en_ciudadelas/1.jpg" width="370" height="270"
+                      loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
+                    <img src="./assets/images/proyectos/Ciencia_en_ciudadelas/2.jpg" width="370" height="270"
+                      loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
+
+
+                  </figure>
+                </div>
+
 
                 <div class="card-actions">
 
@@ -638,7 +655,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li class="card-meta-item">
                       <ion-icon name="reader-outline" aria-hidden="true"></ion-icon>
 
-                      <span class="card-meta-text">6 Talleres</span> -  
+                      <span class="card-meta-text">6 Talleres</span> -
                     </li>
 
                     <li class="card-meta-item">
@@ -652,7 +669,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <h3 class="h3">
                     <a href="#" class="card-title">Ciencia en ciudadelas</a>
                   </h3>
-                  
+
 
                   <div class="rating-wrapper">
 
@@ -668,13 +685,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
                   </div>
                   <p>
-                    Es un proyecto en donde promovemos diferentes áreas como: biología de campo, biología de laboratorio, emprendimientos, programación, astronomía y robótica; los talleres se realizan en las bibliotecas municipales y está direccionado a estudiantes de pre promoción y promoción, las clases son en su totalidad prácticas y tienen duración de 3 días. 
+                    Es un proyecto en donde promovemos diferentes áreas como: biología de campo, biología de
+                    laboratorio, emprendimientos, programación, astronomía y robótica; los talleres se realizan en las
+                    bibliotecas municipales y está direccionado a estudiantes de pre promoción y promoción, las clases
+                    son en su totalidad prácticas y tienen duración de 3 días.
                   </p>
 
-                  
+
 
                   <div class="card-footer">
-                    
+
                     <!-- <div class="card-price">
                       <span class="span">$29.00</span>
 
@@ -683,11 +703,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     <a href="#" class="btn-link">
                       <span class="span">Ver detalle</span>
-      
+
                       <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                     </a>
 
-                  
+
 
                     <div class="card-meta-item">
                       <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
@@ -708,15 +728,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <div class="slider-container2">
                   <figure class="card-banner">
-                    <img src="./assets/images/proyectos/De_la_imaginación_a_la_impresión_3d/1.JPG" width="370" height="270" loading="lazy"
-                      alt="De la imaginación a la impresión 3D" class="img-cover">
-                    <img src="./assets/images/proyectos/De_la_imaginación_a_la_impresión_3d/2.JPG" width="370" height="270" loading="lazy"
-                      alt="De la imaginación a la impresión 3D" class="img-cover">
-                    <img src="./assets/images/proyectos/De_la_imaginación_a_la_impresión_3d/3.JPG" width="370" height="270" loading="lazy"
-                      alt="De la imaginación a la impresión 3D" class="img-cover">
+                    <img src="./assets/images/proyectos/De_la_imaginación_a_la_impresión_3d/1.JPG" width="370"
+                      height="270" loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
+                    <img src="./assets/images/proyectos/De_la_imaginación_a_la_impresión_3d/2.JPG" width="370"
+                      height="270" loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
+                    <img src="./assets/images/proyectos/De_la_imaginación_a_la_impresión_3d/3.JPG" width="370"
+                      height="270" loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
                   </figure>
                 </div>
-                
+
                 <div class="card-actions">
 
                   <!-- <span class="badge">Advanced</span> -->
@@ -763,23 +783,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
                   </div>
                   <p>
-                    Un proyecto realizado de manera online a nivel nacional. El curso tiene como finalidad enseñar Diseño e Impresión 3D a través de diferentes softwares como; Solidworks Tinker Cad, Blender Meshmixer Ultimaker Cura Principios de funcionamiento de impresoras 3D La estructura del mismo está basada en clases teóricas-virtuales y prácticas-presenciales: cuenta con 5 días de clases virtuales intensivas, 2 días de prácticas presenciales y 1 día de conferencia. 
+                    Un proyecto realizado de manera online a nivel nacional. El curso tiene como finalidad enseñar
+                    Diseño e Impresión 3D a través de diferentes softwares como; Solidworks Tinker Cad, Blender
+                    Meshmixer Ultimaker Cura Principios de funcionamiento de impresoras 3D La estructura del mismo está
+                    basada en clases teóricas-virtuales y prácticas-presenciales: cuenta con 5 días de clases virtuales
+                    intensivas, 2 días de prácticas presenciales y 1 día de conferencia.
                   </p>
-                
+
                   <div class="card-footer">
-                  
-                    
+
+
                     <!-- <div class="card-price">
                       <span class="span">Free</span>
                     </div> -->
 
                     <a href="#" class="btn-link">
                       <span class="span">Ver detalle</span>
-      
+
                       <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                     </a>
 
-                  
+
 
                     <div class="card-meta-item">
                       <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
@@ -799,14 +823,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <div class="slider-container3">
                   <figure class="card-banner">
-                    <img src="./assets/images/proyectos/Club_de_chicas_programadoras/3.JPG" width="370" height="270" loading="lazy"
-                      alt="De la imaginación a la impresión 3D" class="img-cover">
-                    <img src="./assets/images/proyectos/Club_de_chicas_programadoras/2.JPG" width="370" height="270" loading="lazy"
-                      alt="De la imaginación a la impresión 3D" class="img-cover">
-                    <img src="./assets/images/proyectos/Club_de_chicas_programadoras/3.JPG" width="370" height="270" loading="lazy"
-                      alt="De la imaginación a la impresión 3D" class="img-cover">
-                      <img src="./assets/images/proyectos/Club_de_chicas_programadoras/4.JPG" width="370" height="270" loading="lazy"
-                      alt="De la imaginación a la impresión 3D" class="img-cover">  
+                    <img src="./assets/images/proyectos/Club_de_chicas_programadoras/3.JPG" width="370" height="270"
+                      loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
+                    <img src="./assets/images/proyectos/Club_de_chicas_programadoras/2.JPG" width="370" height="270"
+                      loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
+                    <img src="./assets/images/proyectos/Club_de_chicas_programadoras/3.JPG" width="370" height="270"
+                      loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
+                    <img src="./assets/images/proyectos/Club_de_chicas_programadoras/4.JPG" width="370" height="270"
+                      loading="lazy" alt="De la imaginación a la impresión 3D" class="img-cover">
 
                   </figure>
                 </div>
@@ -855,17 +879,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="rating-text">(18 Visto)</span>
                   </div>
                   <p>
-                    El club de las chicas programadoras es un proyecto nacido en Argentina, traído a Bolivia por el programa Nos Gusta La Ciencia con el objetivo de fortalecer y empoderar a niñas de 14 a 18 años en áreas de desarrollo tecnológico. Las clases son impartidas en 4 ciudades de Bolivia: Santa Cruz, La Paz, Cochabamba y Tarija, se otorgan 80 becas a nivel nacional (20 por departamento) y las clases tienen duración de 2 meses (3 horas, 1 vez por semana). 
+                    El club de las chicas programadoras es un proyecto nacido en Argentina, traído a Bolivia por el
+                    programa Nos Gusta La Ciencia con el objetivo de fortalecer y empoderar a niñas de 14 a 18 años en
+                    áreas de desarrollo tecnológico. Las clases son impartidas en 4 ciudades de Bolivia: Santa Cruz, La
+                    Paz, Cochabamba y Tarija, se otorgan 80 becas a nivel nacional (20 por departamento) y las clases
+                    tienen duración de 2 meses (3 horas, 1 vez por semana).
                   </p>
                   <div class="card-footer">
-                
+
                     <!-- <div class="card-price">
                       <span class="span">Free</span>
                     </div> -->
 
                     <a href="#" class="btn-link">
                       <span class="span">Ver detalle</span>
-      
+
                       <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                     </a>
                     <div class="card-meta-item">
@@ -877,8 +905,8 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             </li>
 
-    
-<!-- 
+
+            <!-- 
             <li>
               <div class="course-card">
                 <div class="slider-container3">
@@ -1033,153 +1061,153 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
 
-      
+
       </section>
 
 
 
 
-      <section class="section-Organizers Organizers" id="Organizers" aria-label="about" style="background: #FCFFC8;">  
+      <section class="section-Organizers Organizers" id="Organizers" aria-label="about" style="background: #FCFFC8;">
         <div class="container">
-          <p class="section-subtitle">Organizers</p>
-          <h2 class="h2 section-title">Organizers</h2>
-            <div class="carousel-Organizers">
+          <p class="section-subtitle">NUESTRO</p>
+          <h2 class="h2 section-title">EQUIPO</h2>
+          <div class="carousel-Organizers">
 
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Solimar Colque</h3>
-                  <p class="item-Organizers">
-                    Fundadora y directora ejecutiva.
-                  </p>
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Solimar Colque</h3>
+                <p class="item-Organizers">
+                  Fundadora y directora ejecutiva.
+                </p>
 
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
-                </figure>
-              </div>
+                <p class="social-media">
 
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Daniela_Ramirez.jpg" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Daniela Ramirez</h3>
-                  <p class="item-Organizers">
-                    Co-fundadora y directora departamental Santa Cruz.
-                  </p>
-                  
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
-                </figure>
-              </div>
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Lorena_Santos.jpg" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Lorena Santos</h3>
-                  <p class="item-Organizers">
-                    Co-directora departamental Santa Cruz.
-                  </p>
-                  
+                </p>
+              </figure>
+            </div>
 
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
-                </figure>
-              </div>
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Daniela_Ramirez.jpg" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Daniela Ramirez</h3>
+                <p class="item-Organizers">
+                  Co-fundadora y directora departamental Santa Cruz.
+                </p>
+
+                <p class="social-media">
+
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                </p>
+              </figure>
+            </div>
+
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Lorena_Santos.jpg" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Lorena Santos</h3>
+                <p class="item-Organizers">
+                  Co-directora departamental Santa Cruz.
+                </p>
 
 
-              <div class="content-Organizers">
-                
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/ivan.png" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Ivan Sangueza</h3>
-                  <p class="item-Organizers">
-                    Director departamental La Paz.
-                  </p>
-                  
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
-                </figure>
-              </div>
-    
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Lucia_Montes.jpg" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Lucia Montes</h3>
-                  <p class="item-Organizers">
-                    Co-directora departamental La Paz.
-                  </p>
+                <p class="social-media">
+
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                </p>
+              </figure>
+            </div>
 
 
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
+            <div class="content-Organizers">
 
-                </figure>
-              </div>
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/ivan.png" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Ivan Sangueza</h3>
+                <p class="item-Organizers">
+                  Director departamental La Paz.
+                </p>
+
+                <p class="social-media">
+
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                </p>
+              </figure>
+            </div>
+
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Lucia_Montes.jpg" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Lucia Montes</h3>
+                <p class="item-Organizers">
+                  Co-directora departamental La Paz.
+                </p>
 
 
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Sharon_Maygua.jpg" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Sharon Maygua</h3>
-                  <p class="item-Organizers">
-                    Directora departamental Cochabamba.
-                  </p>
-                  
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
+                <p class="social-media">
 
-                </figure>
-              </div>    
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 
-              
-              <!-- <div class="content-Organizers">
+                </p>
+
+              </figure>
+            </div>
+
+
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Sharon_Maygua.jpg" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Sharon Maygua</h3>
+                <p class="item-Organizers">
+                  Directora departamental Cochabamba.
+                </p>
+
+                <p class="social-media">
+
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                </p>
+
+              </figure>
+            </div>
+
+
+            <!-- <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
                     <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
@@ -1196,7 +1224,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </figure>
               </div>   -->
 
-              <!-- <div class="content-Organizers">
+            <!-- <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
                     <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
@@ -1209,7 +1237,7 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>   -->
 
 
-              <!-- <div class="content-Organizers">
+            <!-- <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
                     <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
@@ -1228,57 +1256,57 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>   -->
 
 
-              
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Heidy_Huanca.jpg" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Heidy Huanca</h3>
-                  <p class="item-Organizers">
-                    Directora de logistica.
-                  </p>
 
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Heidy_Huanca.jpg" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Heidy Huanca</h3>
+                <p class="item-Organizers">
+                  Directora de logistica.
+                </p>
 
-                </figure>
-              </div>  
+                <p class="social-media">
 
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 
-              <div class="content-Organizers">
-             
-                <figure class="about-Organizers">  
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Syndel_Callisaya.jpg" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Syndel Callisaya </h3>
-                  <p class="item-Organizers">
-                    Directora de logistica.
-                  </p>
+                </p>
+
+              </figure>
+            </div>
 
 
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>            
-                  </p>
-                </figure>
-              </div>  
+            <div class="content-Organizers">
+
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Syndel_Callisaya.jpg" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Syndel Callisaya </h3>
+                <p class="item-Organizers">
+                  Directora de logistica.
+                </p>
+
+
+                <p class="social-media">
+
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                </p>
+              </figure>
+            </div>
 
 
 
-              <!-- <div class="content-Organizers">
+            <!-- <div class="content-Organizers">
                 <figure class="about-Organizers">
                   <center>
                     <img class="img-Organizers" src="assets/images/Organizers/1.png" alt="Organizers">
@@ -1298,180 +1326,194 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Steohanie_Saavedra.png" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Stephanie Saavedra</h3>
-                  <p class="item-Organizers">
-                    Directora de proyecto “Club de chicas programadoras- Bolivia”.
-                  </p>
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Steohanie_Saavedra.png" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Stephanie Saavedra</h3>
+                <p class="item-Organizers">
+                  Directora de proyecto “Club de chicas programadoras- Bolivia”.
+                </p>
 
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
+                <p class="social-media">
 
-                </figure>
-              </div>
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 
-              <div class="content-Organizers">
-                <figure class="about-Organizers">
-                  <center>
-                    <img class="img-Organizers" src="assets/images/Organizers/Nicole_Chambi.png" alt="Organizers">
-                  </center>
-                  <h3 class="h3 item-title-Organizers">Nicole Chambi</h3>
-                  <p class="item-Organizers">
-                    Directora de proyecto “De la imaginación a la impresión 3D”.
-                  </p>
-                  
+                </p>
 
-                  <p class="social-media">
-                   
-                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-             
-                  </p>
-
-                </figure>
-              </div>
-
+              </figure>
             </div>
+
+            <div class="content-Organizers">
+              <figure class="about-Organizers">
+                <center>
+                  <img class="img-Organizers" src="assets/images/Organizers/Nicole_Chambi.png" alt="Organizers">
+                </center>
+                <h3 class="h3 item-title-Organizers">Nicole Chambi</h3>
+                <p class="item-Organizers">
+                  Directora de proyecto “De la imaginación a la impresión 3D”.
+                </p>
+
+
+                <p class="social-media">
+
+                  <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                </p>
+
+              </figure>
+            </div>
+
+          </div>
         </div>
       </section>
-      
+
       <script type="text/javascript" src="https://kit.fontawesome.com/b6f67b378e.js"></script>
 
 
 
-   <!-- #Actividades-->
+      <!-- #Actividades-->
 
-   <section class="section event" id="event" aria-label="event" style="background:#ffffff;">
-    <div class="container">
+      <section class="section event" id="event" aria-label="event" style="background:#ffffff;">
+        <div class="container">
 
-      <p class="section-subtitle">Nos Gusta La Ciencia es un programa de divulgación científica</p>
+          <p class="section-subtitle">Nos Gusta La Ciencia es un programa de divulgación científica</p>
 
-      <h2 class="h2 section-title">Actividades</h2>
+          <h2 class="h2 section-title">Actividades</h2>
 
-      <ul class="grid-list">
+          <ul class="grid-list">
 
-        <li>
-          <div class="event-card">
+            <li>
+              <div class="event-card">
 
-            <figure class="card-banner">
-
-
-              <!-- <time class="badge" datetime="2023-12-04">04 Mar 2023</time> -->
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0ranuoCjhQbErdY1nkmjWhmoqZ43WYcBF7jkn73s8R8VehVyFcyH72dRS4r9nU2wDl&width=370&show_text=true&appId=167466933725219&height=544" width="370" height="544" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            <div class="card-content">
-
-              <address class="card-address">
-                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                <span class="span">Santa Cruz de la Sierra, Bolivia</span>
-              </address>
-
-              <h3 class="h3">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGvSgh4Z1BJcCbFly1DjxwgVL97c9n66ibLOgmbdoaQdL6SA/viewform" class="card-title">𝗖𝗹𝘂𝗯 𝗱𝗲 𝗖𝗵𝗶𝗰𝗮𝘀 𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗮𝗱𝗼𝗿𝗮𝘀</a>
-              </h3>
-   
-    
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGvSgh4Z1BJcCbFly1DjxwgVL97c9n66ibLOgmbdoaQdL6SA/viewform" class="btn-link">
-                <span class="span">Ver detalle</span>
-
-                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-              </a>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="event-card">
-
-            <figure class="card-banner">
+                <figure class="card-banner">
 
 
-              <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid02Ef4aR5VegedGFqhsaj5yX2QqL6Bwzm2XsP8YYMsyDGMZch1rqgYs3b4gyfrpb17Jl&width=370&show_text=true&appId=167466933725219&height=544" width="370" height="544" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </figure>
+                  <!-- <time class="badge" datetime="2023-12-04">04 Mar 2023</time> -->
+                  <iframe
+                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0ranuoCjhQbErdY1nkmjWhmoqZ43WYcBF7jkn73s8R8VehVyFcyH72dRS4r9nU2wDl&width=370&show_text=true&appId=167466933725219&height=544"
+                    width="370" height="544" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                  <div class="card-content">
 
-            <!-- <time class="badge" datetime="2023-10-30">02 Feb 2023</time> -->
+                    <address class="card-address">
+                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
 
-            <div class="card-content">
+                      <span class="span">Santa Cruz de la Sierra, Bolivia</span>
+                    </address>
 
-              <address class="card-address">
-                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                <span class="span">Santa Cruz de la Sierra, Bolivia</span>
-              </address>
-
-              <h3 class="h3">
-                <a href="#" class="card-title">Día internacional de la mujer y la niña en la ciencia</a>
-              </h3>
-           
-
-              <a href="#" class="btn-link">
-                <span class="span">Ver detalle</span>
-
-                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-              </a>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="event-card">
-
-            <figure class="card-banner">
-
-              <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0v5GWxBexSdN2ebMRuZXjQoLU8KYyFRpMmg4dgoGQfhcQjFyTZsFazz5BJFcVF1qel&width=370&show_text=true&appId=167466933725219&height=544" width="370" height="544" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </figure>
-
-            <!-- <time class="badge" datetime="2023-09-18">18 Nov 2022</time> -->
-
-            <div class="card-content">
-
-              <address class="card-address">
-                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                <span class="span">Santa Cruz de la Sierra, Bolivia</span>
-              </address>
-
-              <h3 class="h3">
-                <a href="#" class="card-title">Colegialas incursionan en el mundo de la tecnología</a>
-              </h3>
-
-   
-
-              <a href="#" class="btn-link">
-                <span class="span">Ver detalle</span>
-
-                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-              </a>
+                    <h3 class="h3">
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGvSgh4Z1BJcCbFly1DjxwgVL97c9n66ibLOgmbdoaQdL6SA/viewform"
+                        class="card-title">𝗖𝗹𝘂𝗯 𝗱𝗲 𝗖𝗵𝗶𝗰𝗮𝘀 𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗮𝗱𝗼𝗿𝗮𝘀</a>
+                    </h3>
 
 
-            </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGvSgh4Z1BJcCbFly1DjxwgVL97c9n66ibLOgmbdoaQdL6SA/viewform"
+                      class="btn-link">
+                      <span class="span">Ver detalle</span>
 
-          </div>
-        </li>
+                      <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                    </a>
 
-      </ul>
+                  </div>
 
-    </div>
-  </section>
-         
+              </div>
+            </li>
 
-      
+            <li>
+              <div class="event-card">
+
+                <figure class="card-banner">
+
+
+                  <iframe
+                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid02Ef4aR5VegedGFqhsaj5yX2QqL6Bwzm2XsP8YYMsyDGMZch1rqgYs3b4gyfrpb17Jl&width=370&show_text=true&appId=167466933725219&height=544"
+                    width="370" height="544" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </figure>
+
+                <!-- <time class="badge" datetime="2023-10-30">02 Feb 2023</time> -->
+
+                <div class="card-content">
+
+                  <address class="card-address">
+                    <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                    <span class="span">Santa Cruz de la Sierra, Bolivia</span>
+                  </address>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Día internacional de la mujer y la niña en la ciencia</a>
+                  </h3>
+
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Ver detalle</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="event-card">
+
+                <figure class="card-banner">
+
+                  <iframe
+                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnosgustalacienciabo%2Fposts%2Fpfbid0v5GWxBexSdN2ebMRuZXjQoLU8KYyFRpMmg4dgoGQfhcQjFyTZsFazz5BJFcVF1qel&width=370&show_text=true&appId=167466933725219&height=544"
+                    width="370" height="544" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </figure>
+
+                <!-- <time class="badge" datetime="2023-09-18">18 Nov 2022</time> -->
+
+                <div class="card-content">
+
+                  <address class="card-address">
+                    <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                    <span class="span">Santa Cruz de la Sierra, Bolivia</span>
+                  </address>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Colegialas incursionan en el mundo de la tecnología</a>
+                  </h3>
+
+
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Ver detalle</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
       <!-- <section class="section-mentores event" style="background: #fcffc8;" id="mentores" aria-label="about">  
         <div class="container">
           <p class="section-subtitle">Mentores</p>
@@ -1591,7 +1633,7 @@ document.addEventListener('DOMContentLoaded', function() {
         - #CTA
       -->
 
-      <section class="section cta" aria-label="workshop" style="background-image: url('./assets/images/cta-bg.png')">
+      <!-- <section class="section cta" aria-label="workshop" style="background-image: url('./assets/images/cta-bg.png')">
         
         
         <div class="container">
@@ -1622,7 +1664,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -1670,8 +1712,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <!-- <section class="section newsletter" aria-label="newsletter"
         style="background-image: url('./assets/images/newsletter-bg.jpg')">
   -->
-        
-          <!-- <p class="section-subtitle">SUSCRIBIRSE AL BOLETÍN INFORMATIVO</p>
+
+      <!-- <p class="section-subtitle">SUSCRIBIRSE AL BOLETÍN INFORMATIVO</p>
 
           <h2 class="h2 section-title">Obtenga todas las últimas noticias</h2>
 
@@ -1691,105 +1733,105 @@ document.addEventListener('DOMContentLoaded', function() {
             </button>
 
           </form> -->
-    
-      
 
-        <section class="section newsletter" aria-label="newsletter"
+
+
+      <section class="section newsletter" aria-label="newsletter"
         style="background-image: url('./assets/images/newsletter-bg.jpg')">
- 
-        
-              <!-- <section class="hero" id="home" aria-label="hero" class="section newsletter" aria-label="newsletter">
-         -->
-              <p class="section-subtitle">Como llegar a la unidad educativa</p>
 
-              <h2 class="h2 section-title">Contacto</h2>
-  
-              <div class="container">
-                    <div id="map">
-                    </div>
-                <div class="hero-content">
-  
-                  <p class="hero-text">           
-                      <address class="card-address">
-                        <span class="span">Santa Cruz de la Sierra, Bolivia
-                          <br>
-                          Dirección:
-                          Av 4to anillo
-                          <br>
-                          Teléfono:
-                          (591)
-                          <br>
-                          Correo:
-                          correo@gmail.com
-                          <br>
-                          Licencias:
-                          correo@gmail.com
-                          <br>
-                          Sugerencias:
-                          correo@gmail.com
-            
-                        </span>
-                      </address>
-                   
-                  </p>
-      
-                  <!-- <a href="#" class="btn btn-primary">
+
+        <!-- <section class="hero" id="home" aria-label="hero" class="section newsletter" aria-label="newsletter">
+         -->
+        <p class="section-subtitle">Como llegar a la unidad educativa</p>
+
+        <h2 class="h2 section-title">Contacto</h2>
+
+        <div class="container">
+          <div id="map">
+          </div>
+          <div class="hero-content">
+
+            <p class="hero-text">
+            <address class="card-address">
+              <span class="span">Santa Cruz de la Sierra, Bolivia
+                <br>
+                Dirección:
+                Av 4to anillo
+                <br>
+                Teléfono:
+                (591)
+                <br>
+                Correo:
+                correo@gmail.com
+                <br>
+                Licencias:
+                correo@gmail.com
+                <br>
+                Sugerencias:
+                correo@gmail.com
+
+              </span>
+            </address>
+
+            </p>
+
+            <!-- <a href="#" class="btn btn-primary">
                     <span class="span">Ver Mas</span>
       
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                   </a>  -->
-      
-                </div>
-              </div>
-            </section>
 
-        
-  
+          </div>
+        </div>
+      </section>
+
+
+
     </article>
   </main>
 
 
 
 
-  <section class="partners" id="partners" aria-label="about">  
+  <section class="partners" id="partners" aria-label="about">
     <div class="container">
-      <p class="section-subtitle-partners">Partners</p>
-      <h2 class="h2 section-title-partners">Partners</h2>
-        <div class="carousel-partners">
+      <p class="section-subtitle-partners">PATROCINADORES Y</p>
+      <h2 class="h2 section-title-partners">ALIADOS</h2>
+      <div class="carousel-partners">
 
-          <div class="content-partners">
-            <figure class="about-partners">
-              <center>
-                <img class="img-partners" src="assets/images/Partners/WWF BOLIVIA.JPG" alt="partners">
-              </center>
-            </figure>
-          </div>
+        <div class="content-partners">
+          <figure class="about-partners">
+            <center>
+              <img class="img-partners" src="assets/images/Partners/WWF BOLIVIA.JPG" alt="partners">
+            </center>
+          </figure>
+        </div>
 
-          <div class="content-partners">
-            <figure class="about-partners">
-              <center>
-                <img class="img-partners" src="assets/images/Partners/CLUB DE CHICAS PROGRAMADORAS.png" alt="partners">
-              </center>
-            </figure>
-          </div>
+        <div class="content-partners">
+          <figure class="about-partners">
+            <center>
+              <img class="img-partners" src="assets/images/Partners/CLUB DE CHICAS PROGRAMADORAS.png" alt="partners">
+            </center>
+          </figure>
+        </div>
 
-          <div class="content-partners">
-            <figure class="about-partners">
-              <center>
-                <img class="img-partners" src="assets/images/Partners/EMBAJADA DE SUECIA.JPG" alt="partners">
-              </center>
-            </figure>
-          </div>
+        <div class="content-partners">
+          <figure class="about-partners">
+            <center>
+              <img class="img-partners" src="assets/images/Partners/EMBAJADA DE SUECIA.JPG" alt="partners">
+            </center>
+          </figure>
+        </div>
 
-          <div class="content-partners">
-            <figure class="about-partners">
-              <center>
-                <img class="img-partners" src="assets/images/Partners/Logo Imp Milk Negro.png" alt="partners">
-              </center>
-            </figure>
-          </div>
+        <div class="content-partners">
+          <figure class="about-partners">
+            <center>
+              <img class="img-partners" src="assets/images/Partners/Logo Imp Milk Negro.png" alt="partners">
+            </center>
+          </figure>
+        </div>
 
-          <div class="content-partners">
+        <div class="content-partners">
           <figure class="about-partners">
             <center>
               <img class="img-partners" src="assets/images/Partners/UNIVERSIDAD CATOLICA BOLIVIANA.jpg" alt="partners">
@@ -1842,7 +1884,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-        </div>
+      </div>
     </div>
   </section>
 
@@ -1850,7 +1892,25 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- 
     - #FOOTER
   -->
-
+  <div class="slider4">
+    <div class="slide4">
+      <img src="./assets/images/logo/ADRI.jpg" alt="Slide 1">
+      <div class="slide-content4">
+        <h2>Texto del Slide 1</h2>
+        <p>Descripción del Slide 1</p>
+        <a href="#" class="btn4">Botón 1</a>
+      </div>
+    </div>
+    <div class="slide4">
+      <img src="./assets/images/logo/1.jpg" alt="Slide 2">
+      <div class="slide-content4">
+        <h2>Texto del Slide 2</h2>
+        <p>Descripción del Slide 2</p>
+        <a href="#" class="btn4">Botón 2</a>
+      </div>
+    </div>
+  </div>
+  
   <footer class="footer">
     <div class="container">
 
@@ -1861,17 +1921,24 @@ document.addEventListener('DOMContentLoaded', function() {
           <a href="#" class="logo">Nos Gusta La Ciencia</a>
 
           <p class="section-text">
-Siguenos en las redes sociales
+            Siguenos en las redes sociales
 
 
           </p>
 
           <div id="fb-root"></div>
-          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v17.0&appId=167466933725219&autoLogAppEvents=1" nonce="stmG98Df"></script>
-          
-          <div class="fb-page" data-href="https://www.facebook.com/nosgustalacienciabo" data-tabs="timeline" data-width="" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/nosgustalacienciabo" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/nosgustalacienciabo">Nos Gusta La Ciencia</a></blockquote></div>
-          
-<br><br>
+          <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v17.0&appId=167466933725219&autoLogAppEvents=1"
+            nonce="stmG98Df"></script>
+
+          <div class="fb-page" data-href="https://www.facebook.com/nosgustalacienciabo" data-tabs="timeline"
+            data-width="" data-height="100" data-small-header="false" data-adapt-container-width="true"
+            data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/nosgustalacienciabo" class="fb-xfbml-parse-ignore"><a
+                href="https://www.facebook.com/nosgustalacienciabo">Nos Gusta La Ciencia</a></blockquote>
+          </div>
+
+          <br><br>
 
           <ul class="social-list">
 
@@ -1888,7 +1955,7 @@ Siguenos en las redes sociales
             </li>
 
             <li>
-              <a href="https://www.linkedin.com/company/nos-gusta-la-ciencia/"  class="social-link">
+              <a href="https://www.linkedin.com/company/nos-gusta-la-ciencia/" class="social-link">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a>
             </li>
@@ -1900,7 +1967,7 @@ Siguenos en las redes sociales
             </li> -->
 
           </ul>
-          
+
 
         </div>
 
@@ -1932,7 +1999,7 @@ Siguenos en las redes sociales
 
               <span class="span">Blog y noticias</span>
             </a>
-            
+
           </li>
 
           <li>
@@ -2078,77 +2145,76 @@ Siguenos en las redes sociales
 
 
   <script
-  src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyDoXPpQqlLk-R1-HEi-PpFLkSUoEhzGDY4&libraries=drawing&v=weekly&region=GB&callback=initMap&v=weekly&channel=2"
-  async></script>
+    src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyDoXPpQqlLk-R1-HEi-PpFLkSUoEhzGDY4&libraries=drawing&v=weekly&region=GB&callback=initMap&v=weekly&channel=2"
+    async></script>
   <style>
     /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
     #map {
-        overflow: hidden;
-        padding-bottom: 56.25%;
-        position: relative;
-        width: auto;
-        height: 400px;
-        border: solid #ffffff;
-        border-top-width: 1px;
-        border-left-width: 2px;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position: relative;
+      width: auto;
+      height: 400px;
+      border: solid #ffffff;
+      border-top-width: 1px;
+      border-left-width: 2px;
+    }
+  </style>
+
+  <script defer>
+
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: {
+          lat: -17.7849881,
+          lng: -63.154124,
+        },
+        zoom: 14,
+
+        mapTypeControl: false,
+        zoomControl: false,
+        streetViewControl: false
+      });
+
+
+
+      const drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: true,
+        drawingControlOptions: {
+          position: google.maps.ControlPosition.TOP_CENTER,
+          drawingModes: [
+            google.maps.drawing.OverlayType.MARKER,
+            google.maps.drawing.OverlayType.CIRCLE,
+            google.maps.drawing.OverlayType.POLYGON,
+            google.maps.drawing.OverlayType.POLYLINE,
+            google.maps.drawing.OverlayType.RECTANGLE,
+          ],
+        },
+        markerOptions: {
+          icon: "{{ asset('assets/logo/s2.png') }}",
+          size: new google.maps.Size(71, 71),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(17, 34),
+          scaledSize: new google.maps.Size(25, 25)
+        },
+        circleOptions: {
+          fillColor: "#ffff00",
+          fillOpacity: 1,
+          strokeWeight: 5,
+          clickable: false,
+          editable: true,
+          zIndex: 1,
+        },
+      });
+
+      drawingManager.setMap(map);
+
     }
 
-</style>
-
-<script defer>
-
-  function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-      center: { 
-          lat:-17.7849881 ,
-          lng: -63.154124,
-       },
-       zoom: 14,
-  
-       mapTypeControl: false,
-      zoomControl: false,
-      streetViewControl: false
-    });
-  
-  
-  
-    const drawingManager = new google.maps.drawing.DrawingManager({
-      drawingMode: google.maps.drawing.OverlayType.MARKER,
-      drawingControl: true,
-      drawingControlOptions: {
-        position: google.maps.ControlPosition.TOP_CENTER,
-        drawingModes: [
-          google.maps.drawing.OverlayType.MARKER,
-          google.maps.drawing.OverlayType.CIRCLE,
-          google.maps.drawing.OverlayType.POLYGON,
-          google.maps.drawing.OverlayType.POLYLINE,
-          google.maps.drawing.OverlayType.RECTANGLE,
-        ],
-      },
-      markerOptions: {
-        icon: "{{ asset('assets/logo/s2.png') }}",
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-      },
-      circleOptions: {
-        fillColor: "#ffff00",
-        fillOpacity: 1,
-        strokeWeight: 5,
-        clickable: false,
-        editable: true,
-        zIndex: 1,
-      },
-    });
-  
-    drawingManager.setMap(map);
-  
-  }
-  
-  window.initMap = initMap;
-    /*  
+    window.initMap = initMap;
+    /*
       function initMap() {
           const marcador = {
               lat:-17.78629 ,
