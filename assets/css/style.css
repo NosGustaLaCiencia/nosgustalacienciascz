@@ -452,7 +452,8 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 
     max-width: 30px;
     max-height: 50px;
-    
+
+   
   }
 
   .img-partners:hover {
@@ -466,6 +467,45 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 
 
 
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-wrapper0 {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel0 {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+
+
+.prev-btn0,
+.next-btn0 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.prev-btn0 {
+  left: 10px;
+}
+
+.next-btn0 {
+  right: 10px;
+}
 
 /*-----------------------------------*\
   #Organizers

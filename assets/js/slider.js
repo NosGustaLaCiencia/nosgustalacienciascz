@@ -4,7 +4,6 @@
 
 
 
-
   document.addEventListener('DOMContentLoaded', function() {
     const sliderContainer = document.querySelector('.slider-container2');
     const slideWidth = sliderContainer.clientWidth;

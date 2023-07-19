@@ -47,34 +47,59 @@ for (let i = 0; i < navTogglers.length; i++) {
 // });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const carouselContainer = document.querySelector('.carousel-partners');
-  const partners = carouselContainer.querySelectorAll('.content-partners');
+  const carouselContainer = document.querySelector('.carousel-container');
+  const carouselWrapper = document.querySelector('.carousel-wrapper0');
+  const partners = carouselWrapper.querySelectorAll('.content-partners');
+  const prevBtn = document.querySelector('.prev-btn0');
+  const nextBtn = document.querySelector('.next-btn0');
 
   let currentPosition = 0;
   let slideWidth = partners[0].offsetWidth;
   let interval;
 
   function startCarousel() {
-    interval = setInterval(function() {
-      currentPosition -= slideWidth;
-      if (currentPosition <= -(partners.length - 1) * slideWidth) {
-        // Reinicia la posición al inicio sin interrupción
-        carouselContainer.style.transition = 'none';
-        currentPosition = 0;
+    interval = setInterval(moveNext, 3000); // Cambia la imagen cada 3 segundos (ajusta el valor según tus necesidades)
+  }
 
-        // Realiza el cambio de posición en el siguiente frame
-        requestAnimationFrame(function() {
-          carouselContainer.style.transition = 'transform 0.3s ease';
-          carouselContainer.style.transform = `translateX(${currentPosition}px)`;
-        });
-      } else {
-        carouselContainer.style.transform = `translateX(${currentPosition}px)`;
-      }
-    }, 3000); // Cambia la imagen cada 3 segundos (ajusta el valor según tus necesidades)
+  function moveNext() {
+    currentPosition -= slideWidth;
+    if (currentPosition <= -(partners.length - 1) * slideWidth) {
+      resetPosition();
+    } else {
+      translateCarousel();
+    }
+  }
+
+  function movePrev() {
+    currentPosition += slideWidth;
+    if (currentPosition > 0) {
+      currentPosition = -(partners.length - 1) * slideWidth;
+    }
+    translateCarousel();
+  }
+
+  function resetPosition() {
+    // Reinicia la posición al inicio sin interrupción
+    carouselWrapper.style.transition = 'none';
+    currentPosition = 0;
+
+    // Realiza el cambio de posición en el siguiente frame
+    requestAnimationFrame(function() {
+      translateCarousel();
+      carouselWrapper.style.transition = 'transform 0.3s ease';
+    });
+  }
+
+  function translateCarousel() {
+    carouselWrapper.style.transform = `translateX(${currentPosition}px)`;
   }
 
   startCarousel();
+
+  prevBtn.addEventListener('click', movePrev);
+  nextBtn.addEventListener('click', moveNext);
 });
+
 
 
 /**
