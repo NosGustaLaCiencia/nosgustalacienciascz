@@ -168,7 +168,6 @@ body {
 .abs-img { display: none; }
 
 .section-subtitle {
-  /* color: var(--ultramarine-blue); */
   color:#ecab2b;
   text-transform: uppercase;
   font-weight: var(--fw-800);
@@ -220,8 +219,12 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--ultramarine-blue);
+  /* background-color: var(--ultramarine-blue); */
+  background-color:  #70ff5d;
   color: var(--white);
+
+  
+  
 }
 
 .btn-primary:is(:hover, :focus) { background-color: var(--space-cadet-2); }
@@ -249,8 +252,11 @@ body {
 
 
 .section {
-  padding-block: var(--section-padding);
-
+  padding-block: 20px;
+  
+  /* padding-block: var(--section-padding);
+  
+ */
 }
 
 .section-Organizers {
@@ -542,19 +548,25 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 
 
 .img-Organizers:hover {
+  transition: box-shadow 0.3s ease; /* Agrega una transición suave al efecto */
   transform: scale(1.1);
 }
 
 
 .img-Organizers{
-  border: 2px solid #f9e5bc;
-  border-radius: 50%; /*ver si quitar o no */
-  position: relative;
   height: 130px;
   width: 130px;
+  border: 2px solid #f1ff2b;
+  border-radius: 50%; /*ver si quitar o no */
+  position: relative;
   background-size: cover;
   margin: auto;
-  box-shadow: 2px 5px 15px #f9e5bc;
+  box-shadow: 5px 5px 15px #f3b2b2;
+
+  display: block;
+  max-height: 130px; /* Ajusta la altura máxima deseada */
+  object-fit: cover;
+  object-position: center;
 
 }
 
@@ -827,7 +839,7 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 
 .hero-title {
   margin-block-end: 2px;
-  font-size: 25px;
+  font-size: 30px;
   width: auto;
 }
 
@@ -870,7 +882,10 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 /* Estilos para pantallas más grandes */
 @media (min-width: 1200px) {
   .hero-content {
-    /* Estilos específicos para pantallas más grandes */
+    width:70%;
+    font-size: 16px; /* Tamaño de fuente móvil */
+    margin-block-end: 10px; /* Margen inferior móvil */
+    text-align: center; /* Centrar el título en dispositivos móviles */
   }
 }
 
@@ -969,7 +984,15 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
   transition: var(--transition-1);
 }
 
-.category-card .card-title { color: var(--title-color); }
+.card-title 
+{ 
+  font-size: 18px;
+
+}
+.category-card .card-title 
+{ color: var(--title-color); 
+
+}
 
 .category-card .card-meta {
   color: var(--meta-color);
@@ -997,6 +1020,7 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 .about {
 
   padding-block-start: 0;
+  
 }
 
 
@@ -1818,7 +1842,9 @@ font-size: 14px;
    * HERO
    */
 
-  .hero { overflow: hidden; }
+  .hero 
+  { overflow: hidden; 
+  }
 
   .hero .container {
     grid-template-columns: 1fr 1fr;
