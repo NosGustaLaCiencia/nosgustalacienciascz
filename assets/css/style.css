@@ -16,7 +16,22 @@
    */
 
 
-  --ultramarine-blue: #99ca61;
+     /**
+   #416BBF
+   #04C4D9
+   #158C03
+   #F29A2E
+   #0D0D0D
+   
+   
+   #99F280
+   #F2C335
+   #F29727
+   #F2C6A0
+   #F26241
+   */
+
+  --ultramarine-blue: #158C03;
   --orange-peel_10: hsla(36, 100%, 55%, 0.1);
   --space-cadet_20: hsla(248, 32%, 23%, 0.2);
   --space-cadet_80: hsla(247, 35%, 19%, 0.8);
@@ -527,7 +542,6 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
   display: grid;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   transition: 0.5s ease;
-  
   border: 3px solid #e5e5e4;
   border-radius: 5%;
   background: #ffffff;
@@ -540,20 +554,16 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 
 
 .item-Organizers{
-
   margin: 12px auto;
   color: grey;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  margin: 1px;
 
-  /* font-weight: 400;
-  font-size: 14px;
-  color: #363636;
-  margin: 12px auto;
-  width: 180px; */
-  
 }
+
+
 
 @media (max-width: 360px) {
   .content-Organizers {
@@ -588,42 +598,81 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 
 
 .img-Organizers:hover {
-  transition: box-shadow 0.3s ease; /* Agrega una transición suave al efecto */
-  transform: scale(1.1);
+  transition: box-shadow 0.3s ease;
+  bottom: 0;
+  transition:all .3s;
 }
-
 
 .img-Organizers{
-  height: 130px;
-  width: 130px;
-  border: 2px solid #f1ff2b;
-  border-radius: 50%; /*ver si quitar o no */
-  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 0%;
+  position: relative; 
   background-size: cover;
   margin: auto;
-  box-shadow: 5px 5px 15px #f3b2b2;
-
+  border-radius: 50%;
   display: block;
-  max-height: 130px; /* Ajusta la altura máxima deseada */
+  max-height: 180px; /* Ajusta la altura máxima deseada */
   object-fit: cover;
   object-position: center;
-
+  top: -15px;
+  cursor: pointer;
+  z-index:5;
+  box-shadow: 1px 1px 30px 1px #b9da92; 
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  
 }
+
+.about-Organizersw {
+  background-image: url('/assets/images/logo/s2.png');
+  background: #b9da92;
+  background-size: cover;
+  border: 10px solid #ffffff;
+  box-shadow:5px 0px 0px 5px #b9da92;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  
+  
+}
+
+.about-Organizersw:hover {
+  transform: scale(0.9); /* Disminuir el tamaño del elemento al hacer hover */
+}
+
+
+
+
+
 
 .social-media {
   margin: 5px;
   display: inline-flex;
   align-items: center;
+  
 }
 
 .social-media a,
 .social-media button {
   margin-right: 10px;
-
   
   }
 
-
+.social-media button:active {
+  transform: translateY(2px); /* Agregamos una ligera traslación hacia abajo cuando el botón está presionado para dar feedback */
+}
 
 /* Estilos para dispositivos móviles */
 
