@@ -191,17 +191,7 @@ body {
 }
 
 
-/* .social {
-  margin: -20px;
-	width: 100vw;
-	background: #f9f9f9;
-	position: sticky;
-	top: 0;
-	z-index: 1;
-	text-align: center; 
-	font-weight: 400;
-	color: #cf1919;
-} */
+
 
 .h1,
 .h2,
@@ -409,9 +399,9 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
   margin: 0px;
   flex: 0 0 auto; /* Establece el tamaño del contenedor de partners */
 }
-.img-partners {
-  max-width: 170px;
-  max-height: 70px;
+.img-partners{
+  max-width: 250px;
+  max-height: 100px;
   box-sizing: border-box;
   transition: transform 0.3s ease; /* Agrega una transición suave al transformar */
 }
@@ -464,11 +454,8 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 
   }
   .img-partners {
-
     max-width: 30px;
     max-height: 50px;
-
-   
   }
 
   .img-partners:hover {
@@ -496,6 +483,12 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 .carousel0 {
   display: flex;
   transition: transform 0.3s ease;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  max-width: 500px;
+
+
+
 }
 
 
@@ -529,10 +522,12 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
 .carousel-Organizers {
   margin: 5px;
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas adicionales si no caben en una sola línea */
-  justify-content: center; /* Centra los elementos horizontalmente */
-  gap: 1px; /* Agrega un espacio de 20px entre los elementos */
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 1px; 
 }
+
+
 .content-Organizers 
 {
   position: relative;
@@ -615,7 +610,7 @@ display: none; /* Oculta las barras de desplazamiento en WebKit (Chrome, Safari)
   max-height: 180px; /* Ajusta la altura máxima deseada */
   object-fit: cover;
   object-position: center;
-  top: -15px;
+  top: -8px;
   cursor: pointer;
   z-index:5;
   box-shadow: 1px 1px 30px 1px #b9da92; 

@@ -40,92 +40,6 @@
 
 
 
-  .cover-container {
-    margin: -70px;
-    position: relative;
-    height: 100vh; /* Ajusta la altura de la portada a la altura de la ventana */
-    background: #fff;
-
-
-  }
-
-  .cover-content {
-
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transform: translate(0%, -100%);
-    text-align: center; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
-
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; 
-   background-color: rgba(0, 0, 0, 0.7);
-   width: 100%;
-   height: 100%;
-   bottom: 0;
-
-
-   display: flex;
-   justify-content: center;
-   align-items: center; */
-
-  }
-  
-  .cover-container img {
-    display: block;
-    width: 100%;
-    max-height: 600px;
-    object-fit: cover;
-   
-  }
-  
-
-  
-/* Estilos para dispositivos móviles */
-@media (max-width: 400px) {
-  .cover-container {
-    position: relative;
-    height: 94vh; /* Ajusta la altura de la portada a la altura de la ventana */
-    background-color: #ffffff; /* Color de fondo principal */
-    margin: -1px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cover-container img {  
-    height: 180px;
-    width: 400px;
-    object-fit: cover;
-    margin: -10px;
-
-    
-  }
-  
-  .cover-content {
-    background-color: #ffffff;
-    font-size: 12px;
-    padding: 5px;
-    width: 400px;
-    position: static;
-    transform: none;
-    text-align: center;
-    color: #ECAB2B; /* Color del texto principal */
-  }
-}
-
-
-
 .box {
   text-align: center;
   padding: 0px;
@@ -466,6 +380,7 @@
 
 
 
+ 
 
 
 
@@ -480,16 +395,201 @@
 
 
 
+.cover-container {
+  justify-content: center;
+  align-items: center; 
+  text-align: center; 
+  max-height: 100%;
+  max-width: 100%;
+ background: rgb(67, 188, 232);
+ transform: translate(0%, -10%);
+ position: static;
+}
+
+.cover-content {
+ 
+  /* transform: translate(0%, -10%); */
+  /* position: relative;
+  display: flex;  */
+  background-color: rgba(0, 0, 0, 0.7); 
+  justify-content: center;
+  /* transform: translate(50%, -50%);
+  transform: translate(0%, -100%); */
+
+
+  background: #741fec;
+  /* width:100%;
+  height: 50%;
+  position: static; */
+
+
+
+}
+
+.cover-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* transform: translate(50%, -50%);
+  transform: translate(0%, -100%); */
+ 
+}
+
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 400px) {
+.cover-container {
+  position: relative;
+  height: 94vh; /* Ajusta la altura de la portada a la altura de la ventana */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-container img {  
+  max-height: 100%;
+  object-fit: cover;
+
+  
+}
+
+.cover-content {
+  width:100%;
+  position: static;
+  transform: none;
+  text-align: center;
+  color: #ECAB2B;  
+}
+
+}
 
 
 
 
+/* .swiper {
+  width: 100%;
+  height:100%; 
+  padding-top: 50px;
+  padding-bottom: 50px; 
+
+} */
+
+/* .swiper-slide {
+
+  position: absolute; 
+  transform: translate(0%, -100%); 
+ text-align: center; 
+ align-items: center;
+ box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+ filter: blur(1px);
+ border-radius: 0px; 
+  display: flex; 
+ flex-direction: column;
+ justify-content: end;
+ align-items: self-start;
+
+} */
+
+.swiper-slide-active {
+  filter: blur(0px);
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+/* .spantitle {
+
+  text-transform: uppercase;
+  background: #fefefe;
+  padding: 7px 18px 7px 25px;
+  display: inline-block;
+  border-radius: 0 20px 20px 0px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-family: "Open Sans", sans-serif;
+} */
+
+ /* .swiper-slide h2 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  padding: 25px 45px 0 25px;
+}  */
+
+.swiper-slide p {
+  color: #e62727;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  padding: 0 25px 35px 25px;
+}  
 
 
 
+.swiper-slide--one {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
 
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("/assets/images/Portadas/logo2.png")
+      no-repeat 50% 50% / cover;
+}
 
+.swiper-slide--two {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
 
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("/assets/images/Portadas/portadasaz.png")
+      no-repeat 50% 50% / cover;
+}
 
+.swiper-slide--three {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
 
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("/assets/images/Portadas/chicasprogramadorasscz.png")
+      no-repeat 50% 50% / cover;
+}
 
+.swiper-slide--four {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("/assets/images/Portadas/colegioportada.png")
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--five {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("/assets/images/Portadas/lapaz.png")
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+  background-image: none;
+}
