@@ -6,7 +6,7 @@ const urlsToCache = [
   'assets/css/slider.css',
   'assets/js/script.js',
   'assets/js/slider.js',
-  'js/script2.js',
+  'js/script_pwa.js',
   'assets/images/logo/s2.png',
   'assets/images/.*',
   'assets/sonido/musica.mp3',
