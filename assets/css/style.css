@@ -202,11 +202,11 @@ body {
 
 
 .h1,
-.h2,
-.h3 {
+.h2{
   color: var(--space-cadet-2);
   line-height: 1.3;
   font-weight: var(--fw-800);
+
 }
 
 .h1 { font-size: var(--fs-1); }
@@ -215,7 +215,8 @@ body {
 
 .h3 {
   font-size: var(--fs-4);
-  font-weight: var(--fw-700);
+  font-weight: var(--fw-700); 
+
 }
 
 .btn {
@@ -230,9 +231,39 @@ body {
   border-radius: var(--radius-6);
   transition: var(--transition-1);
 }
+
+.btn2 {
+  width: 200px;
+  height: 50px;
+  background-color: #158c03;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  transition: 0.25s;
+}
+.btn-primary:hover, a:focus {
+  border-color: red;
+  color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+.btn-primary:hover, .btn-primary:focus {
+    box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+.btn-primary {
+  --color: #158c03;
+  --hover: #158c03;
+}
+
   /* background-color: var(--ultramarine-blue); */
   .btn-primary {
-    background-color: #158c03;;
+    background-color: #8fc866;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -563,8 +594,8 @@ body {
 
 
 .item-Organizers{
-  margin: 12px auto;
-  color: grey;
+  margin: 14px auto;
+  color: rgb(137, 134, 134);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -606,42 +637,50 @@ body {
 }
 
 
-.img-Organizers{
-  
-  height: 150px;
+.img-Organizers {
   width: 150px;
-  position: relative; 
-  background-size: cover; 
-  margin: auto;
-  border-radius:70%;
+  height: 150px;
+  position: relative;
   display: block;
-  max-height: 180px; /* Ajusta la altura máxima deseada */
-  object-fit: cover;
-  object-position: center;
+  margin: auto;
+  max-height: 180px; /* Adjust the desired maximum height */
+  border-radius: 50%; /* Use 50% for a perfect circle */
+  overflow: hidden; /* Ensure content doesn't overflow the circular shape */
+  cursor: pointer;
+  z-index: 5;
+  
+  /* Centering the circular element */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Fine-tune position */
   top: -24px;
   left: -10px;
-  cursor: pointer;
-  z-index:5;
-  /* box-shadow: 1px 1px 30px 1px #b9da92; */
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  
+}
+
+/* Styles for the background image */
+.img-Organizers::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 
 .img-Organizers:hover {
-  transform: scale(1.3); /* Disminuir el tamaño del elemento al hacer hover */
+  transform: scale(1.1); 
   transition: box-shadow 9.3s ease;
   bottom: 0;
-  transition:all 3.3s;
-
+  transition:all 1.3s;
 }
 
 
-
 .about-Organizersw {
- 
   height: 150px;
   width: 150px;
   position: relative; 
@@ -690,12 +729,25 @@ body {
 
   
 }
-/* 
 .about-Organizersw:hover {
-  transform: scale(0.9); 
-} */
+  transform: scale(1.0); 
+  transition: box-shadow 9.3s ease;
+  bottom: 0;
+  transition:all 1.3s; 
+} 
 
-
+.about-Organizersw:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: inherit;
+  z-index: -1;
+}
 
 
 
@@ -1023,12 +1075,16 @@ body {
 
 
 
+
+
 .hero-title {
+
+  font-family: "acta-display", serif;
+  font-size: 40px;
   margin-block-end: 211px;
-  font-size: 35px;
   line-height: 1.2;
   margin-bottom: 15px;
-  color:#99ca61 ;
+  color:#0bb923 ;
   padding: 0 95px 95px 95px;
   top: 100px;
   position: relative;
@@ -1036,6 +1092,9 @@ body {
   transition: transform 0.3s ease-in-out;
   transform: translateY(0);
 }
+
+
+
 
 /* Efecto de levantamiento al pasar el cursor sobre el título */
 .hero-title:hover {
