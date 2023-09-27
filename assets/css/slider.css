@@ -36,9 +36,8 @@
 
 
 
-
-
   .box {
+    /* grid-template-columns: 1fr 60px; */
     text-align: center;
     padding: 0px;
     transition: transform 0.3s ease;
@@ -499,7 +498,7 @@
   /* Superposición de colores */
   background: linear-gradient(
       to top,
-      rgba(15, 32, 39, 0.9), /* Color oscuro (verde azulado) con opacidad */
+      rgba(0, 0, 0, 0.9), /* Color oscuro (verde azulado) con opacidad */
       rgba(32, 58, 67, 0.7) /* Color más claro (verde azulado) con opacidad */
     ),
     url("/assets/images/Portadas/logo2.png") no-repeat center center / cover;
